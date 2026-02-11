@@ -33,10 +33,19 @@ nav input {
 
 /* Hero */
 .hero {
-    background: #222;
+    background: linear-gradient(
+        rgba(0, 0, 0, 0.6), 
+        rgba(0, 0, 0, 0.6)
+    ),
+    url("https://images.unsplash.com/photo-1613977257363-707ba9348227");
+    
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    
     color: white;
     text-align: center;
-    padding: 80px 20px;
+    padding: 120px 20px;
 }
 
 /* Properties */
