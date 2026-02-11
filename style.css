@@ -179,3 +179,16 @@ footer {
     padding: 15px;
     margin-top: 40px;
 }
+.side-text {
+    position: fixed;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    background: #f39c12;
+    color: white;
+    padding: 15px 8px;
+    font-weight: bold;
+    border-radius: 0 10px 10px 0;
+}
