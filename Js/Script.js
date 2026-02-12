@@ -18,4 +18,3 @@ function calculateEMI() {
     document.getElementById("emiResult").innerHTML =
         "Your EMI: ₹ " + emi.toLocaleString("en-IN", { maximumFractionDigits: 2 });
 }
-
