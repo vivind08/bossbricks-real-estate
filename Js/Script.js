@@ -1,22 +1,22 @@
-function calculateINR() {
-    const P = parseFloat(document.getElementById('loanAmount').value);
-    const R = parseFloat(document.getElementById('interestRate').value);
-    const N = parseFloat(document.getElementById('tenure').value);
+function calculateEMI() {
 
-    if (!P || !R || !N) return;
+    let principal = document.getElementById("loanAmount").value;
+    let annualInterest = document.getElementById("interestRate").value;
+    let tenureYears = document.getElementById("loanTenure").value;
 
-    const monthlyRate = R / 12 / 100;
-    const months = N * 12;
+    if(principal === "" || annualInterest === "" || tenureYears === "") {
+        alert("Please fill all fields");
+        return;
+    }
 
-    const emi = (P * monthlyRate * Math.pow(1 + monthlyRate, months)) / 
-                (Math.pow(1 + monthlyRate, months) - 1);
+    let monthlyInterest = (annualInterest / 12) / 100;
+    let months = tenureYears * 12;
 
-    // Formatting for Indian Rupees (Lakhs/Crores commas)
-    const formatter = new Intl.NumberFormat('en-IN', {
-        style: 'currency',
-        currency: 'INR',
-        maximumFractionDigits: 0
-    });
+    let emi = (principal * monthlyInterest * Math.pow(1 + monthlyInterest, months)) /
+              (Math.pow(1 + monthlyInterest, months) - 1);
 
-    document.getElementById('emiResult').innerText = formatter.format(emi);
+    emi = emi.toFixed(2);
+
+    document.getElementById("emiResult").innerHTML = 
+        "Your EMI: ₹ " + Number(emi).toLocaleString("en-IN");
 }
