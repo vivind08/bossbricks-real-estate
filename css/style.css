@@ -143,3 +143,65 @@ footer {
     font-weight: bold;
     margin-bottom: 5px;
 }
+/* Home EMI Luxury Section */
+
+.home-emi {
+    padding: 80px 20px;
+    background: linear-gradient(135deg, #0f172a, #1e293b);
+    text-align: center;
+    color: white;
+}
+
+.home-emi h2 {
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+.home-emi p {
+    margin-bottom: 40px;
+    opacity: 0.8;
+}
+
+.emi-container {
+    max-width: 500px;
+    margin: auto;
+}
+
+.emi-box {
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(10px);
+    padding: 30px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.emi-box input {
+    padding: 14px;
+    border-radius: 8px;
+    border: none;
+    font-size: 15px;
+}
+
+.emi-box button {
+    padding: 14px;
+    border: none;
+    border-radius: 8px;
+    background: linear-gradient(45deg, #d4af37, #facc15);
+    color: black;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 16px;
+}
+
+.emi-box button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 25px rgba(212,175,55,0.6);
+}
+
+#emiResult {
+    margin-top: 20px;
+    font-size: 16px;
+}
