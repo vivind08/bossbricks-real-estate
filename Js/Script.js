@@ -1,3 +1,15 @@
+function searchCity() {
+    let city = document.getElementById("cityInput").value.trim();
+
+    if(city === "") {
+        alert("Please enter a city name");
+        return;
+    }
+
+    // Redirect to properties page with city query
+    window.location.href = "properties.html?city=" + encodeURIComponent(city);
+}
+
 function calculateEMI() {
 
     let principal = parseFloat(document.getElementById("loanAmount").value);
