@@ -1,3 +1,13 @@
+window.onload = function () {
+    const params = new URLSearchParams(window.location.search);
+    const city = params.get("city");
+
+    if (city) {
+        document.getElementById("selectedCity").innerHTML =
+            "Showing properties in " + city;
+    }
+};
+
 function searchCity() {
     let city = document.getElementById("cityInput").value.trim();
 
