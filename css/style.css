@@ -260,4 +260,37 @@ footer {
     -webkit-text-fill-color: transparent;
     font-size: 22px;
 }
+.top-nav {
+    padding: 20px;
+    position: absolute; /* Keeps it on top of your hero image */
+    top: 0;
+    left: 0;
+    z-index: 100;
+}
+
+.back-btn {
+    text-decoration: none;
+    color: white;
+    background: rgba(255, 255, 255, 0.1); /* Glass effect */
+    backdrop-filter: blur(10px);
+    padding: 10px 20px;
+    border-radius: 50px;
+    border: 1px solid rgba(212, 175, 55, 0.5); /* Subtle gold border */
+    font-size: 14px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.back-btn:hover {
+    background: var(--gold-gradient); /* Uses your gold gradient from before */
+    color: black;
+    transform: translateX(-5px); /* Moves slightly left on hover */
+}
+
+.arrow {
+    font-size: 18px;
+}
 
