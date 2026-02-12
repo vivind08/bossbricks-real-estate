@@ -24,22 +24,36 @@
         <p>Find, evaluate and invest in properties with confidence.</p>
     </div>
 </section>
-<section class="home-emi">
-    <div class="emi-container">
-        <h2>Home Loan EMI Calculator</h2>
-        <p>Plan your investment smartly with our luxury EMI calculator</p>
-
-        <div class="emi-box">
-            <input type="number" id="loanAmount" placeholder="Loan Amount (₹)">
-            <input type="number" id="interestRate" placeholder="Interest Rate (%)">
-            <input type="number" id="loanTenure" placeholder="Loan Tenure (Years)">
-
-            <button onclick="calculateEMI()">Calculate EMI</button>
-
-            <div id="emiResult"></div>
-        </div>
+<div class="luxury-card">
+    <div class="badge">Premium Finance</div>
+    <h2>Property EMI Calculator</h2>
+    
+    <div class="input-group">
+        <label>Principal Amount (₹)</label>
+        <input type="number" id="loanAmount" placeholder="e.g. 5000000">
+        <small id="wordDisplay">Amount in Lakhs/Crores</small>
     </div>
-</section>
+
+    <div class="input-group">
+        <label>Annual Interest Rate (% p.a.)</label>
+        <input type="number" id="interestRate" step="0.05" placeholder="e.g. 8.5">
+    </div>
+
+    <div class="input-group">
+        <label>Tenure (Years)</label>
+        <input type="number" id="tenure" placeholder="e.g. 15">
+    </div>
+
+    <button class="btn-luxury" onclick="calculateINR()">
+        <span class="btn-text">CALCULATE NOW</span>
+        <div class="btn-shimmer"></div>
+    </button>
+
+    <div class="result-container">
+        <p>Your Monthly Investment</p>
+        <h3 id="emiResult">₹ 0</h3>
+    </div>
+</div>
 
 <script src="js/script.js"></script>
 
