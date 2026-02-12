@@ -293,35 +293,4 @@ footer {
 .arrow {
     font-size: 18px;
 }
-/*land card*/
-.property-grid {
-    display: grid;
-    /* This creates 4 equal columns on desktop */
-    grid-template-columns: repeat(4, 1fr); 
-    gap: 25px;
-    padding: 40px 5%;
-}
-
-.land-specs {
-    display: flex;
-    justify-content: space-between;
-    margin: 10px 0;
-    font-size: 14px;
-    color: #888;
-    border-bottom: 1px solid #333;
-    padding-bottom: 10px;
-}
-
-/* Responsive: When the screen is smaller than 1024px (Tablets/Phones) */
-@media (max-width: 1024px) {
-    .property-grid {
-        grid-template-columns: repeat(2, 1fr); /* 2 columns for tablets */
-    }
-}
-
-@media (max-width: 600px) {
-    .property-grid {
-        grid-template-columns: 1fr; /* 1 column for mobile apps */
-    }
-}
 
