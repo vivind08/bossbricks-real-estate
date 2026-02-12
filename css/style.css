@@ -502,4 +502,30 @@ footer {
     color: #d4af37;
     font-weight: bold;
 }
+.city-search {
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+}
+
+.city-search input {
+    padding: 10px;
+    width: 250px;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+}
+
+.city-search button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #d4af37;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.city-search button:hover {
+    background-color: #b9972f;
+}
 
