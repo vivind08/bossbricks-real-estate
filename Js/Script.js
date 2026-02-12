@@ -1,6 +1,4 @@
-function calculateEMI(event) {
-
-    event.preventDefault(); // stops refresh
+function calculateEMI() {
 
     let principal = parseFloat(document.getElementById("loanAmount").value);
     let annualInterest = parseFloat(document.getElementById("interestRate").value);
@@ -20,3 +18,4 @@ function calculateEMI(event) {
     document.getElementById("emiResult").innerHTML =
         "Your EMI: ₹ " + emi.toLocaleString("en-IN", { maximumFractionDigits: 2 });
 }
+
