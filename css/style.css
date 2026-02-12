@@ -293,4 +293,41 @@ footer {
 .arrow {
     font-size: 18px;
 }
+/* Luxury Land Card */
+
+.luxury-land {
+    border: none;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+
+.luxury-land img {
+    height: 240px;
+}
+
+.location {
+    margin: 8px 0;
+    color: #555;
+}
+
+.area {
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+.luxury-btn {
+    margin-top: 12px;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 8px;
+    background: linear-gradient(45deg, #d4af37, #facc15);
+    color: black;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.luxury-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(212,175,55,0.5);
+}
 
