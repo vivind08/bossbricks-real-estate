@@ -1,11 +1,11 @@
 function calculateEMI() {
 
-    let principal = document.getElementById("loanAmount").value;
-    let annualInterest = document.getElementById("interestRate").value;
-    let tenureYears = document.getElementById("loanTenure").value;
+    let principal = parseFloat(document.getElementById("loanAmount").value);
+    let annualInterest = parseFloat(document.getElementById("interestRate").value);
+    let tenureYears = parseFloat(document.getElementById("loanTenure").value);
 
-    if(principal === "" || annualInterest === "" || tenureYears === "") {
-        alert("Please fill all fields");
+    if (isNaN(principal) || isNaN(annualInterest) || isNaN(tenureYears)) {
+        document.getElementById("emiResult").innerHTML = "Please enter valid values";
         return;
     }
 
@@ -15,8 +15,6 @@ function calculateEMI() {
     let emi = (principal * monthlyInterest * Math.pow(1 + monthlyInterest, months)) /
               (Math.pow(1 + monthlyInterest, months) - 1);
 
-    emi = emi.toFixed(2);
-
-    document.getElementById("emiResult").innerHTML = 
-        "Your EMI: ₹ " + Number(emi).toLocaleString("en-IN");
+    document.getElementById("emiResult").innerHTML =
+        "Your EMI: ₹ " + emi.toLocaleString("en-IN", {maximumFractionDigits: 2});
 }
