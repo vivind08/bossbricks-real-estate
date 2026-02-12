@@ -348,4 +348,18 @@ footer {
     transform: scale(1.05);
     box-shadow: 0 8px 20px rgba(212,175,55,0.5);
 }
+/* Villa Styling */
+
+.luxury-villa {
+    box-shadow: 0 12px 35px rgba(0,0,0,0.15);
+    border-radius: 15px;
+}
+
+.luxury-villa img {
+    height: 230px;
+}
+
+.luxury-villa p {
+    margin: 6px 0;
+}
 
