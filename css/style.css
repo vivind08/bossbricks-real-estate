@@ -421,59 +421,85 @@ footer {
     z-index: 2;
     color: #000;
 }
-/* EMI Section */
+
+/* ===== LUXURY EMI SECTION ===== */
 
 .emi-section {
-    padding: 80px 20px;
-    background: linear-gradient(to right, #111, #222);
+    padding: 100px 20px;
+    background: #111;
     display: flex;
     justify-content: center;
 }
 
+/* Black Luxury Card */
 .emi-container {
-    background: linear-gradient(135deg, #FFD700, #b8860b);
-    padding: 40px;
+    background: #000;
+    padding: 50px 40px;
     border-radius: 20px;
-    width: 400px;
+    width: 420px;
     text-align: center;
-    box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+    border: 2px solid #d4af37;
+    box-shadow: 0 0 25px rgba(212, 175, 55, 0.4);
+    transition: 0.4s ease;
 }
 
+.emi-container:hover {
+    box-shadow: 0 0 40px rgba(212, 175, 55, 0.7);
+    transform: translateY(-5px);
+}
+
+/* Golden Heading */
 .emi-container h2 {
-    margin-bottom: 20px;
-    color: #111;
+    color: #d4af37;
+    margin-bottom: 25px;
+    font-size: 28px;
+    letter-spacing: 1px;
 }
 
+/* Inputs */
 .emi-form input {
     width: 100%;
-    padding: 12px;
-    margin: 10px 0;
-    border: none;
+    padding: 14px;
+    margin: 12px 0;
+    background: #111;
+    border: 1px solid #444;
     border-radius: 10px;
-    font-size: 16px;
-}
-
-.emi-btn {
-    width: 100%;
-    padding: 12px;
-    margin-top: 15px;
-    border: none;
-    border-radius: 30px;
-    font-size: 16px;
-    cursor: pointer;
-    background: linear-gradient(135deg, silver, #c0c0c0);
-    color: black;
-    font-weight: bold;
+    color: #fff;
+    font-size: 15px;
+    outline: none;
     transition: 0.3s;
 }
 
-.emi-btn:hover {
-    background: linear-gradient(135deg, #e6e6e6, #999);
-    transform: scale(1.05);
+.emi-form input:focus {
+    border-color: #d4af37;
+    box-shadow: 0 0 8px rgba(212, 175, 55, 0.5);
 }
 
-#emiResult {
+/* Golden Button */
+.emi-btn {
+    width: 100%;
+    padding: 14px;
     margin-top: 20px;
-    color: #111;
+    border-radius: 30px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    background: linear-gradient(135deg, #d4af37, #b8860b);
+    color: black;
+    transition: 0.3s ease;
+}
+
+.emi-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.8);
+}
+
+/* EMI Result */
+#emiResult {
+    margin-top: 25px;
+    font-size: 20px;
+    color: #d4af37;
+    font-weight: bold;
 }
 
