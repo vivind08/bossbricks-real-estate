@@ -362,4 +362,23 @@ footer {
 .luxury-villa p {
     margin: 6px 0;
 }
+/* Farmhouse Banner */
+
+.farm-banner {
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+                url('https://images.unsplash.com/photo-1500382017468-9049fed747ef') center/cover;
+    padding: 100px 20px;
+    text-align: center;
+    color: white;
+}
+
+.farm-banner h1 {
+    font-size: 40px;
+    margin-bottom: 15px;
+}
+
+.luxury-farm {
+    box-shadow: 0 12px 35px rgba(0,0,0,0.15);
+    border-radius: 15px;
+}
 
