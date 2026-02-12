@@ -330,4 +330,22 @@ footer {
     transform: scale(1.05);
     box-shadow: 0 8px 20px rgba(212,175,55,0.5);
 }
+/* Luxury Back Button */
+
+.back-btn {
+    display: inline-block;
+    margin-bottom: 25px;
+    padding: 10px 18px;
+    text-decoration: none;
+    border-radius: 8px;
+    background: linear-gradient(45deg, #d4af37, #facc15);
+    color: black;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.back-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(212,175,55,0.5);
+}
 
