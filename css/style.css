@@ -381,4 +381,44 @@ footer {
     box-shadow: 0 12px 35px rgba(0,0,0,0.15);
     border-radius: 15px;
 }
+/* Modern House Banner */
+
+.modern-banner {
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+                url('https://images.unsplash.com/photo-1600607687939-ce8a6c25118c') center/cover;
+    padding: 100px 20px;
+    text-align: center;
+    color: white;
+}
+
+.modern-banner h1 {
+    font-size: 40px;
+    margin-bottom: 15px;
+}
+
+/* Modern Card Style */
+
+.modern-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+}
+
+.modern-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.6), transparent);
+    z-index: 1;
+}
+
+.modern-card .property-info {
+    position: relative;
+    z-index: 2;
+    color: #000;
+}
 
