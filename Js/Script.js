@@ -1,12 +1,12 @@
-function calculateEMI() {
+function calculateEMI(event) {
 
-    event.preventDefault(); // Stops page refresh
+    event.preventDefault(); // stops refresh
 
     let principal = parseFloat(document.getElementById("loanAmount").value);
     let annualInterest = parseFloat(document.getElementById("interestRate").value);
     let tenureYears = parseFloat(document.getElementById("loanTenure").value);
 
-    if (!principal || !annualInterest || !tenureYears) {
+    if (isNaN(principal) || isNaN(annualInterest) || isNaN(tenureYears)) {
         document.getElementById("emiResult").innerHTML = "Please enter valid values";
         return;
     }
