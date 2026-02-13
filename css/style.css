@@ -755,5 +755,28 @@ footer {
     color:white;
     cursor:pointer;
 }
+/* property tax calculator */
+.tax-side-card{
+    position:fixed;
+    right:0;
+    top:50%;
+    transform:translateY(-50%);
+    writing-mode:vertical-rl;
+    text-orientation:mixed;
+    padding:20px 10px;
+    background:linear-gradient(135deg,#667eea,#764ba2);
+    color:white;
+    font-weight:bold;
+    letter-spacing:2px;
+    border-radius:20px 0 0 20px;
+    cursor:pointer;
+    box-shadow:0 10px 30px rgba(0,0,0,0.3);
+    transition:0.4s;
+}
+
+.tax-side-card:hover{
+    padding:25px 12px;
+    background:linear-gradient(135deg,#764ba2,#667eea);
+}
 
     
