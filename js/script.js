@@ -40,3 +40,32 @@ function calculateEMI() {
     document.getElementById("emiResult").innerHTML =
         "Your EMI: ₹ " + emi.toLocaleString("en-IN", { maximumFractionDigits: 2 });
 }
+function searchCity() {
+
+    let input = document.getElementById("cityInput").value.toLowerCase().trim();
+    let cards = document.querySelectorAll(".property-card");
+
+    if (input === "") {
+        alert("Please enter a city");
+        return;
+    }
+
+    let found = false;
+
+    cards.forEach(function(card) {
+
+        let city = card.getAttribute("data-city");
+
+        if (city.includes(input)) {
+            card.style.display = "block";
+            found = true;
+        } else {
+            card.style.display = "none";
+        }
+
+    });
+
+    if (!found) {
+        alert("No properties found in " + input);
+    }
+}
