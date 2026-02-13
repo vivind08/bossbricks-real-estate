@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Top Builders</title>
+
+<style>
+body{
+    margin:0;
+    font-family:Arial;
+    background:#f4f6f9;
+}
+
+/* Back Button */
+.back-btn{
+    margin:20px;
+    padding:10px 20px;
+    border:none;
+    background:#2c3e50;
+    color:white;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+/* Title */
+.page-title{
+    text-align:center;
+    margin-top:20px;
+    color:#2c3e50;
+}
+
+/* Builder Grid */
+.builder-grid{
+    display:flex;
+    justify-content:center;
+    gap:25px;
+    padding:50px;
+    flex-wrap:wrap;
+}
+
+/* Builder Card */
+.builder-card{
+    width:250px;
+    padding:25px;
+    background:white;
+    border-radius:20px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.1);
+    text-align:center;
+    transition:0.4s;
+    cursor:pointer;
+}
+
+.builder-card:hover{
+    transform:translateY(-10px);
+    box-shadow:0 20px 40px rgba(0,0,0,0.2);
+}
+
+.builder-card h3{
+    margin-top:0;
+    color:#2c3e50;
+}
+
+.builder-card p{
+    color:#666;
+}
+</style>
+</head>
+
+<body>
+
+<button class="back-btn" onclick="history.back()">← Back</button>
+
+<h1 class="page-title">Top Builders</h1>
+
+<div class="builder-grid">
+
+    <div class="builder-card" onclick="openProjects('lodha')">
+        <h3>Lodha Group</h3>
+        <p>Premium residential & luxury towers across Maharashtra.</p>
+    </div>
+
+    <div class="builder-card" onclick="openProjects('kolte')">
+        <h3>Kolte Patil</h3>
+        <p>Modern smart living homes with innovative designs.</p>
+    </div>
+
+    <div class="builder-card" onclick="openProjects('runwal')">
+        <h3>Runwal Group</h3>
+        <p>High-end residential and commercial developments.</p>
+    </div>
+
+    <div class="builder-card" onclick="openProjects('godrej')">
+        <h3>Godrej Properties</h3>
+        <p>Sustainable and future-ready living communities.</p>
+    </div>
+
+    <div class="builder-card" onclick="openProjects('shapoorji')">
+        <h3>Shapoorji Pallonji</h3>
+        <p>Luxury and iconic landmark projects.</p>
+    </div>
+
+</div>
+
+<script>
+function openProjects(builder){
+    window.location.href = "projects.html?builder=" + builder;
+}
+</script>
+
+</body>
+</html>
