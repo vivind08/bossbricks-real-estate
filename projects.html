@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Builder Projects</title>
+
+<style>
+body{
+    margin:0;
+    font-family:Arial;
+    background:#f9fafc;
+}
+
+.back-btn{
+    margin:20px;
+    padding:10px 20px;
+    background:#2c3e50;
+    color:white;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+.page-title{
+    text-align:center;
+    margin-top:20px;
+    color:#2c3e50;
+}
+
+.project-grid{
+    display:flex;
+    justify-content:center;
+    gap:25px;
+    padding:40px;
+    flex-wrap:wrap;
+}
+
+.project-card{
+    width:260px;
+    padding:20px;
+    background:white;
+    border-radius:20px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.1);
+    transition:0.3s;
+}
+
+.project-card:hover{
+    transform:translateY(-8px);
+}
+</style>
+</head>
+
+<body>
+
+<button class="back-btn" onclick="history.back()">← Back</button>
+
+<h1 class="page-title">Projects</h1>
+
+<div id="projectResults" class="project-grid"></div>
+
+<script>
+const projectsData = {
+    lodha:["Lodha World Tower - Mumbai","Lodha Belmondo - Pune","Lodha Crown - Thane","Lodha Serenity - Nashik"],
+    kolte:["Life Republic - Pune","24K Sereno - Baner","Three Jewels - Pune"],
+    runwal:["Runwal Greens - Mumbai","Runwal Forests - Kanjurmarg","Runwal Bliss - Thane"],
+    godrej:["Godrej Emerald - Thane","Godrej Hillside - Pune","Godrej Sky Greens - Mumbai"],
+    shapoorji:["SP Residency - Pune","SP Infocity - Mumbai","SP Imperial Towers - Nagpur"]
+};
+
+function loadProjects(){
+    const params = new URLSearchParams(window.location.search);
+    const builder = params.get("builder");
+    const container = document.getElementById("projectResults");
+
+    if(projectsData[builder]){
+        projectsData[builder].forEach(project=>{
+            container.innerHTML += `
+                <div class="project-card">
+                    <h3>${project}</h3>
+                    <p>Premium Project by ${builder.charAt(0).toUpperCase()+builder.slice(1)}</p>
+                </div>
+            `;
+        });
+    }else{
+        container.innerHTML = "<h2>No Projects Found</h2>";
+    }
+}
+
+window.onload = loadProjects;
+</script>
+
+</body>
+</html>
