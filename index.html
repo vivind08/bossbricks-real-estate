@@ -8,6 +8,18 @@
 
 
 </head>
+<script>
+function goToSearch(){
+    const city = document.getElementById("citySelect").value;
+
+    if(city === ""){
+        alert("Please select a city");
+        return;
+    }
+
+    window.location.href = "search.html?city=" + city;
+}
+</script>
 
 <body>
 
