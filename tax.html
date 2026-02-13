@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Property Tax Calculator</title>
+
+<style>
+body{
+    margin:0;
+    font-family:Arial;
+    background:linear-gradient(135deg,#eef2f3,#8e9eab);
+}
+
+/* Back Button */
+.back-btn{
+    margin:20px;
+    padding:10px 20px;
+    border:none;
+    background:#333;
+    color:white;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+/* Main Card */
+.tax-container{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:90vh;
+}
+
+.tax-card{
+    width:420px;
+    padding:40px;
+    border-radius:30px;
+    background:rgba(255,255,255,0.2);
+    backdrop-filter:blur(20px);
+    box-shadow:0 20px 60px rgba(0,0,0,0.3);
+    color:#222;
+}
+
+/* Title */
+.tax-card h2{
+    text-align:center;
+    margin-bottom:30px;
+}
+
+/* Slider */
+input[type=range]{
+    width:100%;
+}
+
+.value-display{
+    text-align:center;
+    margin:10px 0 20px;
+    font-weight:bold;
+}
+
+/* Select */
+select{
+    width:100%;
+    padding:10px;
+    border-radius:8px;
+    border:none;
+    margin-bottom:20px;
+}
+
+/* Result Box */
+.result-box{
+    margin-top:20px;
+    padding:15px;
+    background:white;
+    border-radius:15px;
+}
+</style>
+</head>
+
+<body>
+
+<button class="back-btn" onclick="history.back()">← Back</button>
+
+<div class="tax-container">
+<div class="tax-card">
+
+<h2>Property Tax Calculator</h2>
+
+<label>Property Price</label>
+<input type="range" min="1000000" max="50000000" step="500000" id="priceSlider">
+<div class="value-display" id="priceValue">₹10,00,000</div>
+
+<label>Select City</label>
+<select id="citySelect">
+    <option value="mumbai">Mumbai</option>
+    <option value="pune">Pune</option>
+    <option value="thane">Thane</option>
+    <option value="nagpur">Nagpur</option>
+</select>
+
+<div class="result-box" id="result"></div>
+
+</div>
+</div>
+
+<script>
+const slider = document.getElementById("priceSlider");
+const priceValue = document.getElementById("priceValue");
+const resultBox = document.getElementById("result");
+
+slider.oninput = calculate;
+document.getElementById("citySelect").onchange = calculate;
+
+function calculate(){
+
+    const price = slider.value;
+    priceValue.innerHTML = "₹" + Number(price).toLocaleString();
+
+    const city = document.getElementById("citySelect").value;
+
+    // Example Stamp Duty Rates
+    const stampDutyRates = {
+        mumbai: 0.05,
+        pune: 0.06,
+        thane: 0.055,
+        nagpur: 0.05
+    };
+
+    const registrationRate = 0.01; // 1%
+
+    const stampDuty = price * stampDutyRates[city];
+    const registration = price * registrationRate;
+    const totalTax = stampDuty + registration;
+
+    
+      const stampPercent = stampDutyRates[city] * 100;
+const regPercent = registrationRate * 100;
+
+resultBox.innerHTML = `
+    <p><strong>Stamp Duty (${stampPercent}%):</strong> ₹${stampDuty.toLocaleString()}</p>
+    <p><strong>Registration Fee (${regPercent}%):</strong> ₹${registration.toLocaleString()}</p>
+    <hr>
+    <h3>Total Payable: ₹${totalTax.toLocaleString()}</h3>
+`;
+
+    `;
+}
+
+calculate();
+</script>
+
+</body>
+</html>
