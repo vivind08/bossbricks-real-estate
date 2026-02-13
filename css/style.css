@@ -528,4 +528,51 @@ footer {
 .city-search button:hover {
     background-color: #b9972f;
 }
+/* ===== CLASSIC CITY SEARCH ===== */
+
+.search-section {
+    padding: 80px 20px;
+    background: #111;
+    display: flex;
+    justify-content: center;
+}
+
+.search-container {
+    background: #000;
+    padding: 40px;
+    border-radius: 12px;
+    width: 500px;
+    text-align: center;
+    border: 1px solid #d4af37;
+    box-shadow: 0 0 20px rgba(212,175,55,0.3);
+}
+
+.search-container h2 {
+    color: #d4af37;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+}
+
+.search-container input {
+    width: 80%;
+    padding: 12px;
+    border-radius: 5px;
+    border: 1px solid #444;
+    background: #111;
+    color: white;
+    margin-bottom: 15px;
+}
+
+.search-btn {
+    padding: 12px 30px;
+    background: linear-gradient(135deg,#d4af37,#b8860b);
+    border: none;
+    border-radius: 25px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.search-btn:hover {
+    box-shadow: 0 0 15px rgba(212,175,55,0.6);
+}
 
