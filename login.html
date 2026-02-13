@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>BossBricks | Login</title>
+
+<style>
+body{
+    margin:0;
+    font-family: 'Segoe UI', sans-serif;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(-45deg,#1e3c72,#2a5298,#0f2027,#203a43);
+    background-size:400% 400%;
+    animation:gradientMove 10s ease infinite;
+}
+
+@keyframes gradientMove{
+    0%{background-position:0% 50%;}
+    50%{background-position:100% 50%;}
+    100%{background-position:0% 50%;}
+}
+
+/* Glass Card */
+.login-card{
+    width:350px;
+    padding:40px;
+    border-radius:25px;
+    background:rgba(255,255,255,0.1);
+    backdrop-filter:blur(20px);
+    box-shadow:0 20px 60px rgba(0,0,0,0.5);
+    color:white;
+    animation:fadeIn 1s ease;
+}
+
+@keyframes fadeIn{
+    from{opacity:0; transform:translateY(20px);}
+    to{opacity:1; transform:translateY(0);}
+}
+
+.login-card h2{
+    text-align:center;
+    margin-bottom:30px;
+    letter-spacing:2px;
+}
+
+/* Inputs */
+.login-card input{
+    width:100%;
+    padding:12px;
+    margin-bottom:20px;
+    border:none;
+    border-radius:10px;
+    background:rgba(255,255,255,0.2);
+    color:white;
+    font-size:14px;
+}
+
+.login-card input::placeholder{
+    color:#ddd;
+}
+
+/* Button */
+.login-card button{
+    width:100%;
+    padding:12px;
+    border:none;
+    border-radius:12px;
+    background:white;
+    color:#1e3c72;
+    font-weight:bold;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.login-card button:hover{
+    background:#ddd;
+}
+
+/* Show password */
+.toggle-password{
+    font-size:12px;
+    cursor:pointer;
+    margin-top:-15px;
+    margin-bottom:15px;
+    display:block;
+    text-align:right;
+}
+</style>
+</head>
+
+<body>
+
+<div class="login-card">
+    <h2>BossBricks Login</h2>
+
+    <input type="email" id="email" placeholder="Email Address">
+    <input type="password" id="password" placeholder="Password" id="password">
+
+    <span class="toggle-password" onclick="togglePassword()">Show / Hide Password</span>
+
+    <button onclick="login()">Login</button>
+</div>
+
+<script>
+
+function togglePassword(){
+    const pass = document.getElementById("password");
+    pass.type = pass.type === "password" ? "text" : "password";
+}
+
+function login(){
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+
+    if(email === "admin@bossbricks.com" && password === "1234"){
+        localStorage.setItem("bossbricksLoggedIn","true");
+        window.location.href = "index.html";
+    } else {
+        alert("Invalid Email or Password");
+    }
+}
+
+</script>
+
+</body>
+</html>
