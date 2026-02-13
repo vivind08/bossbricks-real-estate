@@ -8,18 +8,6 @@
 
 
 </head>
-    <script>
-function goToSearch(){
-    const city = document.getElementById("citySelect").value;
-
-    if(city === ""){
-        alert("Please select a city");
-        return;
-    }
-
-    window.location.href = "search.html?city=" + city;
-}
-</script>
 
 <body>
 
@@ -47,31 +35,7 @@ function goToSearch(){
     </a>
 </div>
     <!-- search city -->
-    <section class="city-search-section">
-    <div class="search-card">
-        <h2>Find Luxury Property</h2>
-        <p>Select Your Preferred City</p>
-
-        <div class="search-box">
-            <select id="citySelect">
-                <option value="">-- Select City --</option>
-                <option value="mumbai">Mumbai</option>
-                <option value="pune">Pune</option>
-                <option value="nagpur">Nagpur</option>
-                <option value="nashik">Nashik</option>
-                <option value="thane">Thane</option>
-                <option value="kolhapur">Kolhapur</option>
-                <option value="sambhajinagar">Sambhajinagar</option>
-                <option value="solapur">Solapur</option>
-                <option value="ratnagiri">Ratnagiri</option>
-                <option value="alibag">Alibag</option>
-            </select>
-
-            <button onclick="goToSearch()">Search</button>
-        </div>
-    </div>
-</section>
-
+    
 
 <!-- EMI Calculator Section -->
 <section class="emi-section">
