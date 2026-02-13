@@ -1,377 +1,139 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Search Results - Bossbricks</title>
-    <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
+<title>Find Property By City</title>
+
 <style>
-body {
-    margin: 0;
-    background: linear-gradient(to right,#000000,#111111);
+body{
+    margin:0;
+    padding:0;
     font-family: Arial, sans-serif;
+    background: linear-gradient(to right,#000,#1a1a1a);
+    color:white;
 }
 
-.page-title {
-    text-align: center;
-    padding: 60px 20px 30px;
-    color: #d4af37;
-    font-size: 42px;
-    letter-spacing: 2px;
+/* Back Button */
+.back-btn{
+    position:absolute;
+    top:20px;
+    left:20px;
+    padding:10px 20px;
+    background:transparent;
+    border:2px solid gold;
+    color:gold;
+    border-radius:25px;
+    cursor:pointer;
+    font-weight:bold;
+    transition:0.3s;
+}
+.back-btn:hover{
+    background:gold;
+    color:black;
 }
 
-.luxury-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 40px;
-    padding: 40px 5% 80px;
+/* Search Section */
+.search-section{
+    text-align:center;
+    padding:80px 20px 30px;
 }
 
-.luxury-card {
-    width: 320px;
-    background: rgba(0,0,0,0.9);
-    border-radius: 20px;
-    overflow: hidden;
-    border: 1px solid rgba(212,175,55,0.4);
-    transition: 0.5s ease;
-    box-shadow: 0 10px 40px rgba(0,0,0,0.7);
+.search-section h1{
+    color:gold;
+    margin-bottom:30px;
+    font-size:32px;
 }
 
-.luxury-card:hover {
-    transform: translateY(-15px);
-    box-shadow: 0 0 50px rgba(212,175,55,0.5);
+.search-box input{
+    padding:12px;
+    width:250px;
+    border-radius:8px;
+    border:none;
+    outline:none;
 }
 
-.luxury-img {
-    position: relative;
-    height: 220px;
-    overflow: hidden;
+.search-box button{
+    padding:12px 20px;
+    background:gold;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+    font-weight:bold;
+    margin-left:10px;
 }
 
-.luxury-img img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: 0.6s ease;
+/* Property Grid */
+.property-grid{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:25px;
+    padding:40px;
 }
 
-.luxury-card:hover img {
-    transform: scale(1.1);
+/* Property Card */
+.property-card{
+    background:#111;
+    width:280px;
+    padding:20px;
+    border-radius:15px;
+    color:gold;
+    box-shadow:0 0 20px rgba(255,215,0,0.3);
+    transition:0.4s;
 }
 
-.price-tag {
-    position: absolute;
-    top: 15px;
-    left: 15px;
-    background: linear-gradient(135deg,#d4af37,#b8860b);
-    color: black;
-    padding: 6px 14px;
-    border-radius: 20px;
-    font-weight: bold;
+.property-card:hover{
+    transform:translateY(-10px);
+    box-shadow:0 0 35px rgba(255,215,0,0.6);
 }
 
-.location-tag {
-    position: absolute;
-    bottom: 15px;
-    right: 15px;
-    background: rgba(0,0,0,0.7);
-    color: #d4af37;
-    padding: 6px 12px;
-    border-radius: 15px;
-    font-size: 12px;
+.property-card h3{
+    margin-top:0;
 }
 
-.luxury-content {
-    padding: 25px;
-    color: white;
-}
-
-.luxury-content h3 {
-    color: #d4af37;
-    margin-bottom: 10px;
-}
-
-.luxury-content p {
-    font-size: 14px;
-    color: #ccc;
-    margin-bottom: 20px;
-}
-
-.luxury-details {
-    display: flex;
-    justify-content: space-between;
-    font-size: 13px;
-    margin-bottom: 20px;
-    color: #aaa;
-}
-
-.view-btn {
-    width: 100%;
-    padding: 10px;
-    background: linear-gradient(135deg,#d4af37,#b8860b);
-    border: none;
-    border-radius: 25px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.view-btn:hover {
-    box-shadow: 0 0 20px rgba(212,175,55,0.7);
-}
-
-.back-btn {
-    display: block;
-    margin: 20px auto 60px;
-    padding: 12px 40px;
-    background: black;
-    color: #d4af37;
-    border: 2px solid #d4af37;
-    border-radius: 30px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.back-btn:hover {
-    background: #d4af37;
-    color: black;
+.property-card button{
+    padding:8px 15px;
+    background:black;
+    color:gold;
+    border:1px solid gold;
+    border-radius:8px;
+    cursor:pointer;
 }
 </style>
+</head>
 
+<body>
 
-<h1 class="page-title">Luxury Properties in Maharashtra</h1>
+<button class="back-btn" onclick="history.back()">← Back</button>
 
-<div class="luxury-container">
-
-<!-- 1 -->
-<div class="luxury-card">
-<div class="luxury-img">
-<img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c">
-<span class="price-tag">₹ 2.8 Cr</span>
-<span class="location-tag">Mumbai</span>
-</div>
-<div class="luxury-content">
-<h3>Sea View Apartment</h3>
-<p>Premium 3 BHK sea-facing luxury home.</p>
-<div class="luxury-details">
-<span>1450 sqft</span>
-<span>3 BHK</span>
-<span>Ready</span>
-</div>
-<button class="view-btn">View Details</button>
-</div>
-</div>
-
-<!-- 2 -->
-<div class="luxury-card">
-<div class="luxury-img">
-<img src="https://images.unsplash.com/photo-1568605114967-8130f3a36994">
-<span class="price-tag">₹ 1.6 Cr</span>
-<span class="location-tag">Pune</span>
-</div>
-<div class="luxury-content">
-<h3>Modern Premium Villa</h3>
-<p>Luxury villa in gated society with garden.</p>
-<div class="luxury-details">
-<span>2500 sqft</span>
-<span>4 BHK</span>
-<span>Garden</span>
-</div>
-<button class="view-btn">View Details</button>
-</div>
-</div>
-
-<!-- 3 -->
-<div class="luxury-card">
-<div class="luxury-img">
-<img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688">
-<span class="price-tag">₹ 85 Lakh</span>
-<span class="location-tag">Nashik</span>
-</div>
-<div class="luxury-content">
-<h3>Hill View Apartment</h3>
-<p>Peaceful apartment with scenic surroundings.</p>
-<div class="luxury-details">
-<span>1100 sqft</span>
-<span>2 BHK</span>
-<span>Parking</span>
-</div>
-<button class="view-btn">View Details</button>
-</div>
-</div>
-
-<!-- 4 -->
-<div class="luxury-card">
-<div class="luxury-img">
-<img src="https://images.unsplash.com/photo-1572120360610-d971b9d7767c">
-<span class="price-tag">₹ 1.2 Cr</span>
-<span class="location-tag">Nagpur</span>
-</div>
-<div class="luxury-content">
-<h3>Luxury Duplex House</h3>
-<p>Modern interiors with private terrace.</p>
-<div class="luxury-details">
-<span>1800 sqft</span>
-<span>3 BHK</span>
-<span>Terrace</span>
-</div>
-<button class="view-btn">View Details</button>
-</div>
-</div>
-
-<!-- 5 -->
-<div class="luxury-card">
-<div class="luxury-img">
-<img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c">
-<span class="price-tag">₹ 95 Lakh</span>
-<span class="location-tag">Ratnagiri</span>
-</div>
-<div class="luxury-content">
-<h3>Coastal Farmhouse</h3>
-<p>Konkan style beach side farmhouse.</p>
-<div class="luxury-details">
-<span>2000 sqft</span>
-<span>Farmhouse</span>
-<span>Beach</span>
-</div>
-<button class="view-btn">View Details</button>
-</div>
-</div>
-
-<!-- 6 -->
-<div class="luxury-card">
-<div class="luxury-img">
-<img src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914">
-<span class="price-tag">₹ 1.4 Cr</span>
-<span class="location-tag">Panvel</span>
-</div>
-<div class="luxury-content">
-<h3>Premium Gated Villa</h3>
-<p>Luxury villa with clubhouse & pool.</p>
-<div class="luxury-details">
-<span>2200 sqft</span>
-<span>4 BHK</span>
-<span>Pool</span>
-</div>
-<button class="view-btn">View Details</button>
-</div>
-</div>
-
-<!-- 7 -->
-<div class="luxury-card">
-<div class="luxury-img">
-<img src="https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6">
-<span class="price-tag">₹ 70 Lakh</span>
-<span class="location-tag">Kolhapur</span>
-</div>
-<div class="luxury-content">
-<h3>Independent Modern House</h3>
-<p>Spacious independent home in calm locality.</p>
-<div class="luxury-details">
-<span>1400 sqft</span>
-<span>3 BHK</span>
-<span>Parking</span>
-</div>
-<button class="view-btn">View Details</button>
-</div>
-</div>
-
-<!-- 8 -->
-<div class="luxury-card">
-<div class="luxury-img">
-<img src="https://images.unsplash.com/photo-1604014238170-4def1e4e6f7e">
-<span class="price-tag">₹ 1.1 Cr</span>
-<span class="location-tag">Aurangabad</span>
-</div>
-<div class="luxury-content">
-<h3>Smart Luxury Apartment</h3>
-<p>Smart home enabled property.</p>
-<div class="luxury-details">
-<span>1600 sqft</span>
-<span>3 BHK</span>
-<span>Smart</span>
-</div>
-<button class="view-btn">View Details</button>
-</div>
-</div>
-
-<!-- 9 -->
-<div class="luxury-card">
-<div class="luxury-img">
-<img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6">
-<span class="price-tag">₹ 60 Lakh</span>
-<span class="location-tag">Sindhudurg</span>
-</div>
-<div class="luxury-content">
-<h3>Beach Side Cottage</h3>
-<p>Peaceful coastal living property.</p>
-<div class="luxury-details">
-<span>1200 sqft</span>
-<span>2 BHK</span>
-<span>Sea View</span>
-</div>
-<button class="view-btn">View Details</button>
-</div>
-</div>
-
-<!-- 10 -->
-<div class="luxury-card">
-<div class="luxury-img">
-<img src="https://images.unsplash.com/photo-1599423300746-b62533397364">
-<span class="price-tag">₹ 1.9 Cr</span>
-<span class="location-tag">Thane</span>
-</div>
-<div class="luxury-content">
-<h3>High Rise Premium Flat</h3>
-<p>City skyline view luxury apartment.</p>
-<div class="luxury-details">
-<span>1700 sqft</span>
-<span>3 BHK</span>
-<span>Skyline</span>
-</div>
-<button class="view-btn">View Details</button>
-</div>
-</div>
-
-</div>
-
-<button class="back-btn" onclick="window.location.href='index.html'">
-← Back to Home
-</button>
-
-<h2 id="resultTitle"></h2>
-<div class="luxury-card">
-
-    <div class="luxury-img">
-        <img src="images/mumbai-villa.jpg" alt="Property">
-        <span class="price-tag">₹ 2.5 Cr</span>
-        <span class="location-tag">Mumbai</span>
+<div class="search-section">
+    <h1>Find Luxury Property By City</h1>
+    <div class="search-box">
+        <input type="text" id="cityInput" placeholder="Enter City Name (e.g. Mumbai)">
+        <button onclick="searchCity()">Search</button>
     </div>
-
-    <div class="luxury-content">
-        <h3>Sea Facing Luxury Apartment</h3>
-        <p>3 BHK premium apartment with modern interiors, balcony view & parking.</p>
-
-        <div class="luxury-details">
-            <span>1200 sqft</span>
-            <span>3 BHK</span>
-            <span>Ready to Move</span>
-        </div>
-
-        <button class="view-btn">View Details</button>
-    </div>
-
 </div>
 
+<div id="propertyResults" class="property-grid"></div>
 
+<script>
+const properties = [
+    {city:"mumbai", title:"Sea View Luxury Apartment", price:"₹3.2 Cr", location:"Mumbai, Maharashtra"},
+    {city:"pune", title:"Modern 3BHK Villa", price:"₹1.8 Cr", location:"Pune, Maharashtra"},
+    {city:"nagpur", title:"Premium Smart Home", price:"₹95 Lakh", location:"Nagpur, Maharashtra"},
+    {city:"nashik", title:"Mountain View Bungalow", price:"₹1.2 Cr", location:"Nashik, Maharashtra"},
+    {city:"thane", title:"Skyline Luxury Flat", price:"₹2.1 Cr", location:"Thane, Maharashtra"},
+    {city:"kolhapur", title:"Classic Royal Villa", price:"₹85 Lakh", location:"Kolhapur, Maharashtra"},
+    {city:"sambhajinagar", title:"Spacious Family Home", price:"₹75 Lakh", location:"sambhajinagar, Maharashtra"},
+    {city:"solapur", title:"Affordable Premium House", price:"₹60 Lakh", location:"Solapur, Maharashtra"},
+    {city:"ratnagiri", title:"Beach Side Farmhouse", price:"₹1.5 Cr", location:"Ratnagiri, Maharashtra"},
+    {city:"alibag", title:"Luxury Holiday Villa", price:"₹2.7 Cr", location:"Alibag, Maharashtra"}
+];
 
-</div>
+function searchCity(){
+    const input = document.getElementById("cityInput").value.toLowerCase();
+    const results = document.getElementById("propertyResults");
+    results.innerHTML = "";
 
-<button onclick="goBack()" class="back-btn">Back to Home</button>
+    const filtered = properties.filter(property => property.city === input);
 
-<script src="js/script.js"></script>
-</body>
-</html>
-
+    if(
