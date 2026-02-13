@@ -552,6 +552,20 @@ footer {
     margin-bottom: 20px;
     letter-spacing: 1px;
 }
+.back-btn {
+    margin-top: 40px;
+    padding: 12px 30px;
+    background: black;
+    color: #d4af37;
+    border: 1px solid #d4af37;
+    border-radius: 25px;
+    cursor: pointer;
+}
+
+.back-btn:hover {
+    background: #d4af37;
+    color: black;
+}
 
 .search-container input {
     width: 80%;
