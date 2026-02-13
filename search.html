@@ -1,1 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Luxury Search Results</title>
+
+<style>
+body{
+    margin:0;
+    font-family:Arial;
+    background:linear-gradient(to right,#000,#1a1a1a);
+    color:white;
+}
+
+/* Back Button */
+.back-btn{
+    position:absolute;
+    top:20px;
+    left:20px;
+    padding:10px 20px;
+    border:2px solid gold;
+    background:transparent;
+    color:gold;
+    border-radius:25px;
+    cursor:pointer;
+}
+
+.back-btn:hover{
+    background:gold;
+    color:black;
+}
+
+/* Title */
+.page-title{
+    text-align:center;
+    margin-top:80px;
+    color:gold;
+}
+
+/* Grid */
+.property-grid{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:30px;
+    padding:40px;
+}
+
+/* Premium Card */
+.property-card{
+    width:280px;
+    padding:20px;
+    border-radius:20px;
+    background:linear-gradient(145deg,#111,#1c1c1c);
+    color:gold;
+    box-shadow:0 0 30px rgba(255,215,0,0.3);
+    transition:0.4s;
+}
+
+.property-card:hover{
+    transform:translateY(-10px);
+    box-shadow:0 0 60px rgba(255,215,0,0.6);
+}
+
+.property-card p{
+    color:#ccc;
+}
+
+.property-card button{
+    padding:8px 15px;
+    background:black;
+    color:gold;
+    border:1px solid gold;
+    border-radius:10px;
+    cursor:pointer;
+}
+</style>
+</head>
+
+<body>
+
+<button class="back-btn" onclick="history.back()">← Back</button>
+
+<h1 class="page-title">Premium Properties</h1>
+
+<div id="propertyResults" class="property-grid"></div>
+
+<script>
+const propertyData = {
+    mumbai:["Sea View Apartment","Bandra Penthouse"],
+    pune:["Modern Villa","Luxury Smart Home"],
+    nagpur:["Premium House"],
+    nashik:["Mountain Bungalow"],
+    thane:["Skyline Flat"],
+    kolhapur:["Royal Villa"],
+    sambhajinagar:["Spacious Home"],
+    solapur:["Premium House"],
+    ratnagiri:["Beach Farmhouse"],
+    alibag:["Holiday Villa"]
+};
+
+function loadProperties(){
+    const params = new URLSearchParams(window.location.search);
+    const city = params.get("city");
+    const results = document.getElementById("propertyResults");
+
+    if(propertyData[city]){
+        propertyData[city].forEach(property=>{
+            results.innerHTML += `
+                <div class="property-card">
+                    <h3>${property}</h3>
+                    <p>${city.charAt(0).toUpperCase()+city.slice(1)}, Maharashtra</p>
+                    <h2>₹ Premium Price</h2>
+                    <button>View Details</button>
+                </div>
+            `;
+        });
+    }else{
+        results.innerHTML = "<h2 style='color:gold;'>No Properties Found</h2>";
+    }
+}
+
+window.onload = loadProperties;
+</script>
+
+</body>
+</html>
 
