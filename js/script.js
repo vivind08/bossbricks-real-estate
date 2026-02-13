@@ -1,10 +1,3 @@
-
-
-
-    // Redirect to properties page with city query
-    window.location.href = "properties.html?city=" + encodeURIComponent(city);
-}
-// for emi Calculate code
 function calculateEMI() {
 
     let principal = parseFloat(document.getElementById("loanAmount").value);
@@ -25,6 +18,7 @@ function calculateEMI() {
     document.getElementById("emiResult").innerHTML =
         "Your EMI: ₹ " + emi.toLocaleString("en-IN", { maximumFractionDigits: 2 });
 }
+
 function searchCity() {
 
     let input = document.getElementById("cityInput").value.toLowerCase().trim();
