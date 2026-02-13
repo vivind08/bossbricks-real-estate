@@ -59,3 +59,29 @@ function searchCity() {
 
     window.location.href = "search.html?city=" + encodeURIComponent(city);
 }
+window.onload = function() {
+
+    const params = new URLSearchParams(window.location.search);
+    const city = params.get("city");
+
+    if(city) {
+
+        document.getElementById("resultTitle").innerHTML =
+            "Properties in " + city;
+
+        let cards = document.querySelectorAll(".property-card");
+
+        cards.forEach(function(card) {
+
+            let cardCity = card.getAttribute("data-city");
+
+            if(cardCity.toLowerCase() !== city.toLowerCase()) {
+                card.style.display = "none";
+            }
+        });
+    }
+}
+
+function goBack() {
+    window.location.href = "index.html";
+}
