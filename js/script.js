@@ -101,7 +101,11 @@ function predictPrice() {
         mumbai: 12000,
         pune: 6000,
         ratnagiri: 2500,
-        panvel: 5000
+        panvel: 5000,
+        karjat:4500,
+        khopoli:5200,
+        navimumbai:7800,
+        borivali:10000
     };
 
     let pricePerSqft = rates[city];
