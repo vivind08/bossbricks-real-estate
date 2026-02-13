@@ -671,9 +671,12 @@ footer {
 /* ====tesearch city ===== */
 <style>
 .city-search-section{
-    display:flex;
-    justify-content:center;
-    margin:60px 0;
+    min-height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 }
 
 .search-card{
