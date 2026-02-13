@@ -56,14 +56,38 @@ body{
 <h1 class="page-title">Projects</h1>
 
 <div id="projectResults" class="project-grid"></div>
-
 <script>
 const projectsData = {
-    lodha:["Lodha World Tower - Mumbai","Lodha Belmondo - Pune","Lodha Crown - Thane","Lodha Serenity - Nashik"],
-    kolte:["Life Republic - Pune","24K Sereno - Baner","Three Jewels - Pune"],
-    runwal:["Runwal Greens - Mumbai","Runwal Forests - Kanjurmarg","Runwal Bliss - Thane"],
-    godrej:["Godrej Emerald - Thane","Godrej Hillside - Pune","Godrej Sky Greens - Mumbai"],
-    shapoorji:["SP Residency - Pune","SP Infocity - Mumbai","SP Imperial Towers - Nagpur"]
+    lodha:[
+        {name:"Lodha World Tower", location:"Mumbai", price:"₹4.5 Cr", type:"3 & 4 BHK"},
+        {name:"Lodha Belmondo", location:"Pune", price:"₹1.9 Cr", type:"2 & 3 BHK"},
+        {name:"Lodha Crown", location:"Thane", price:"₹85 Lakh", type:"1 & 2 BHK"},
+        {name:"Lodha Serenity", location:"Nashik", price:"₹70 Lakh", type:"2 BHK"}
+    ],
+
+    kolte:[
+        {name:"Life Republic", location:"Pune", price:"₹75 Lakh", type:"2 & 3 BHK"},
+        {name:"24K Sereno", location:"Baner", price:"₹1.4 Cr", type:"3 BHK"},
+        {name:"Three Jewels", location:"Pune", price:"₹68 Lakh", type:"2 BHK"}
+    ],
+
+    runwal:[
+        {name:"Runwal Greens", location:"Mumbai", price:"₹2.2 Cr", type:"2 & 3 BHK"},
+        {name:"Runwal Forests", location:"Kanjurmarg", price:"₹1.8 Cr", type:"2 & 3 BHK"},
+        {name:"Runwal Bliss", location:"Thane", price:"₹1.1 Cr", type:"2 BHK"}
+    ],
+
+    godrej:[
+        {name:"Godrej Emerald", location:"Thane", price:"₹95 Lakh", type:"2 BHK"},
+        {name:"Godrej Hillside", location:"Pune", price:"₹82 Lakh", type:"2 BHK"},
+        {name:"Godrej Sky Greens", location:"Mumbai", price:"₹1.6 Cr", type:"3 BHK"}
+    ],
+
+    shapoorji:[
+        {name:"SP Residency", location:"Pune", price:"₹1.3 Cr", type:"3 BHK"},
+        {name:"SP Infocity", location:"Mumbai", price:"₹2.5 Cr", type:"Commercial"},
+        {name:"SP Imperial Towers", location:"Nagpur", price:"₹90 Lakh", type:"2 BHK"}
+    ]
 };
 
 function loadProjects(){
@@ -71,12 +95,16 @@ function loadProjects(){
     const builder = params.get("builder");
     const container = document.getElementById("projectResults");
 
+    container.innerHTML = "";
+
     if(projectsData[builder]){
         projectsData[builder].forEach(project=>{
             container.innerHTML += `
                 <div class="project-card">
-                    <h3>${project}</h3>
-                    <p>Premium Project by ${builder.charAt(0).toUpperCase()+builder.slice(1)}</p>
+                    <h3>${project.name}</h3>
+                    <p>${project.location}</p>
+                    <h2 style="margin:10px 0;">${project.price}</h2>
+                    <p>${project.type}</p>
                 </div>
             `;
         });
@@ -87,6 +115,9 @@ function loadProjects(){
 
 window.onload = loadProjects;
 </script>
+
+
+
 
 </body>
 </html>
