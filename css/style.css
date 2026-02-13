@@ -589,8 +589,9 @@ footer {
 .search-btn:hover {
     box-shadow: 0 0 15px rgba(212,175,55,0.6);
 }
+/*proce predictor land */
 .predict-btn-container {
-    text-align: center;
+    text-align: right;
     margin: 40px 0;
 }
 
