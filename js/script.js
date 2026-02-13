@@ -48,3 +48,14 @@ function searchCity() {
         alert("No properties found in " + input);
     }
 }
+function searchCity() {
+
+    let city = document.getElementById("cityInput").value.trim();
+
+    if(city === "") {
+        alert("Please enter a city");
+        return;
+    }
+
+    window.location.href = "search.html?city=" + encodeURIComponent(city);
+}
