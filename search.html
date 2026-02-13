@@ -86,41 +86,65 @@ body{
 
 <script>
 const propertyData = {
-    mumbai:["Sea View Apartment","Bandra Penthouse"],
-    pune:["Modern Villa","Luxury Smart Home"],
-    nagpur:["Premium House"],
-    nashik:["Mountain Bungalow"],
-    thane:["Skyline Flat"],
-    kolhapur:["Royal Villa"],
-    sambhajinagar:["Spacious Home"],
-    solapur:["Premium House"],
-    ratnagiri:["Beach Farmhouse"],
-    alibag:["Holiday Villa"]
+    mumbai:[
+        {title:"Sea View Apartment", price:"₹3.2 Cr"},
+        {title:"Bandra Luxury Penthouse", price:"₹5.5 Cr"}
+    ],
+    pune:[
+        {title:"Modern 3BHK Villa", price:"₹1.8 Cr"},
+        {title:"Luxury Smart Home", price:"₹2.4 Cr"}
+    ],
+    nagpur:[
+        {title:"Premium Family House", price:"₹95 Lakh"}
+    ],
+    nashik:[
+        {title:"Mountain View Bungalow", price:"₹1.2 Cr"}
+    ],
+    thane:[
+        {title:"Skyline Luxury Flat", price:"₹2.1 Cr"}
+    ],
+    kolhapur:[
+        {title:"Classic Royal Villa", price:"₹85 Lakh"}
+    ],
+    sambhajinagar:[
+        {title:"Spacious Smart Home", price:"₹75 Lakh"}
+    ],
+    solapur:[
+        {title:"Affordable Premium House", price:"₹60 Lakh"}
+    ],
+    ratnagiri:[
+        {title:"Beach Side Farmhouse", price:"₹1.5 Cr"}
+    ],
+    alibag:[
+        {title:"Luxury Holiday Villa", price:"₹2.7 Cr"}
+    ]
 };
 
 function loadProperties(){
     const params = new URLSearchParams(window.location.search);
     const city = params.get("city");
     const results = document.getElementById("propertyResults");
+    results.innerHTML = "";
 
     if(propertyData[city]){
         propertyData[city].forEach(property=>{
             results.innerHTML += `
                 <div class="property-card">
-                    <h3>${property}</h3>
+                    <h3>${property.title}</h3>
                     <p>${city.charAt(0).toUpperCase()+city.slice(1)}, Maharashtra</p>
-                    <h2>₹ Premium Price</h2>
+                    <h2 style="margin:10px 0;">${property.price}</h2>
                     <button>View Details</button>
                 </div>
             `;
         });
     }else{
-        results.innerHTML = "<h2 style='color:gold;'>No Properties Found</h2>";
+        results.innerHTML = "<h2 style='color:gold;text-align:center;'>No Properties Found</h2>";
     }
 }
 
 window.onload = loadProperties;
 </script>
+
 
 </body>
 </html>
