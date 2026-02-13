@@ -671,10 +671,10 @@ footer {
 /* ====tesearch city ===== */
 <style>
 .city-search-section{
-    min-height: 90vh;
+    height: 100vh;              /* Full screen height */
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: center;    /* Horizontal center */
+    align-items: center;        /* Vertical center */
 }
 
 }
