@@ -1,39 +1,10 @@
-function searchCity() {
 
-    let input = document.getElementById("cityInput").value.toLowerCase().trim();
-    let cards = document.querySelectorAll(".property-card");
-
-    if (input === "") {
-        cards.forEach(card => card.style.display = "block");
-        return;
-    }
-
-    let found = false;
-
-    cards.forEach(function(card) {
-
-        let city = card.getAttribute("data-city");
-
-        if (city && city.toLowerCase().includes(input)) {
-            card.style.display = "block";
-            found = true;
-        } else {
-            card.style.display = "none";
-        }
-
-    });
-
-    if (!found) {
-        alert("No properties found in " + input);
-        cards.forEach(card => card.style.display = "block");
-    }
-}
 
 
     // Redirect to properties page with city query
     window.location.href = "properties.html?city=" + encodeURIComponent(city);
 }
-
+// for emi Calculate code
 function calculateEMI() {
 
     let principal = parseFloat(document.getElementById("loanAmount").value);
