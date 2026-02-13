@@ -8,6 +8,19 @@
 
 
 </head>
+    <script>
+function goToSearch(){
+    const city = document.getElementById("citySelect").value;
+
+    if(city === ""){
+        alert("Please select a city");
+        return;
+    }
+
+    window.location.href = "search.html?city=" + city;
+}
+</script>
+
 <body>
 
 <header>
@@ -33,19 +46,32 @@
         Predict House Price
     </a>
 </div>
+    <!-- search city -->
+    <section class="city-search-section">
+    <div class="search-card">
+        <h2>Find Luxury Property</h2>
+        <p>Select Your Preferred City</p>
 
-    <!-- search button-->
-    <section class="search-section">
-    <div class="search-container">
-        <h2>Find Properties by City</h2>
+        <div class="search-box">
+            <select id="citySelect">
+                <option value="">-- Select City --</option>
+                <option value="mumbai">Mumbai</option>
+                <option value="pune">Pune</option>
+                <option value="nagpur">Nagpur</option>
+                <option value="nashik">Nashik</option>
+                <option value="thane">Thane</option>
+                <option value="kolhapur">Kolhapur</option>
+                <option value="aurangabad">Aurangabad</option>
+                <option value="solapur">Solapur</option>
+                <option value="ratnagiri">Ratnagiri</option>
+                <option value="alibag">Alibag</option>
+            </select>
 
-        <input type="text" id="cityInput" placeholder="Enter city name (Mumbai, Pune, Ratnagiri...)">
-
-        <button type="button" onclick="searchCity()" class="search-btn">
-            Search Property
-        </button>
+            <button onclick="goToSearch()">Search</button>
+        </div>
     </div>
 </section>
+
 
 <!-- EMI Calculator Section -->
 <section class="emi-section">
