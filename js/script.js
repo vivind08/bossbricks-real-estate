@@ -1,20 +1,34 @@
-window.onload = function () {
-    const params = new URLSearchParams(window.location.search);
-    const city = params.get("city");
-
-    if (city) {
-        document.getElementById("selectedCity").innerHTML =
-            "Showing properties in " + city;
-    }
-};
-
 function searchCity() {
-    let city = document.getElementById("cityInput").value.trim();
 
-    if(city === "") {
-        alert("Please enter a city name");
+    let input = document.getElementById("cityInput").value.toLowerCase().trim();
+    let cards = document.querySelectorAll(".property-card");
+
+    if (input === "") {
+        cards.forEach(card => card.style.display = "block");
         return;
     }
+
+    let found = false;
+
+    cards.forEach(function(card) {
+
+        let city = card.getAttribute("data-city");
+
+        if (city && city.toLowerCase().includes(input)) {
+            card.style.display = "block";
+            found = true;
+        } else {
+            card.style.display = "none";
+        }
+
+    });
+
+    if (!found) {
+        alert("No properties found in " + input);
+        cards.forEach(card => card.style.display = "block");
+    }
+}
+
 
     // Redirect to properties page with city query
     window.location.href = "properties.html?city=" + encodeURIComponent(city);
