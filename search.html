@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Find Property By City</title>
+<title>Luxury Properties</title>
 
 <style>
 body{
     margin:0;
     padding:0;
-    font-family: Arial, sans-serif;
-    background: linear-gradient(to right,#000,#1a1a1a);
+    font-family:Arial;
+    background:linear-gradient(to right,#000,#1a1a1a);
     color:white;
 }
 
@@ -18,84 +18,64 @@ body{
     top:20px;
     left:20px;
     padding:10px 20px;
-    background:transparent;
     border:2px solid gold;
+    background:transparent;
     color:gold;
     border-radius:25px;
     cursor:pointer;
-    font-weight:bold;
-    transition:0.3s;
 }
 .back-btn:hover{
     background:gold;
     color:black;
 }
 
-/* Search Section */
-.search-section{
+/* Title */
+.page-title{
     text-align:center;
-    padding:80px 20px 30px;
-}
-
-.search-section h1{
+    margin-top:80px;
     color:gold;
-    margin-bottom:30px;
     font-size:32px;
 }
 
-.search-box input{
-    padding:12px;
-    width:250px;
-    border-radius:8px;
-    border:none;
-    outline:none;
-}
-
-.search-box button{
-    padding:12px 20px;
-    background:gold;
-    border:none;
-    border-radius:8px;
-    cursor:pointer;
-    font-weight:bold;
-    margin-left:10px;
-}
-
-/* Property Grid */
+/* Grid */
 .property-grid{
     display:flex;
     flex-wrap:wrap;
     justify-content:center;
-    gap:25px;
+    gap:30px;
     padding:40px;
 }
 
-/* Property Card */
+/* Premium Card */
 .property-card{
-    background:#111;
-    width:280px;
+    width:300px;
+    background:linear-gradient(145deg,#111,#1c1c1c);
+    border-radius:20px;
     padding:20px;
-    border-radius:15px;
     color:gold;
-    box-shadow:0 0 20px rgba(255,215,0,0.3);
+    box-shadow:0 0 30px rgba(255,215,0,0.3);
     transition:0.4s;
 }
 
 .property-card:hover{
-    transform:translateY(-10px);
-    box-shadow:0 0 35px rgba(255,215,0,0.6);
+    transform:translateY(-12px);
+    box-shadow:0 0 60px rgba(255,215,0,0.6);
 }
 
 .property-card h3{
     margin-top:0;
 }
 
+.property-card p{
+    color:#ccc;
+}
+
 .property-card button{
-    padding:8px 15px;
+    padding:10px 15px;
     background:black;
     color:gold;
     border:1px solid gold;
-    border-radius:8px;
+    border-radius:10px;
     cursor:pointer;
 }
 </style>
@@ -105,35 +85,72 @@ body{
 
 <button class="back-btn" onclick="history.back()">← Back</button>
 
-<div class="search-section">
-    <h1>Find Luxury Property By City</h1>
-    <div class="search-box">
-        <input type="text" id="cityInput" placeholder="Enter City Name (e.g. Mumbai)">
-        <button onclick="searchCity()">Search</button>
-    </div>
-</div>
+<h1 class="page-title">Premium Properties</h1>
 
 <div id="propertyResults" class="property-grid"></div>
 
 <script>
-const properties = [
-    {city:"mumbai", title:"Sea View Luxury Apartment", price:"₹3.2 Cr", location:"Mumbai, Maharashtra"},
-    {city:"pune", title:"Modern 3BHK Villa", price:"₹1.8 Cr", location:"Pune, Maharashtra"},
-    {city:"nagpur", title:"Premium Smart Home", price:"₹95 Lakh", location:"Nagpur, Maharashtra"},
-    {city:"nashik", title:"Mountain View Bungalow", price:"₹1.2 Cr", location:"Nashik, Maharashtra"},
-    {city:"thane", title:"Skyline Luxury Flat", price:"₹2.1 Cr", location:"Thane, Maharashtra"},
-    {city:"kolhapur", title:"Classic Royal Villa", price:"₹85 Lakh", location:"Kolhapur, Maharashtra"},
-    {city:"sambhajinagar", title:"Spacious Family Home", price:"₹75 Lakh", location:"sambhajinagar, Maharashtra"},
-    {city:"solapur", title:"Affordable Premium House", price:"₹60 Lakh", location:"Solapur, Maharashtra"},
-    {city:"ratnagiri", title:"Beach Side Farmhouse", price:"₹1.5 Cr", location:"Ratnagiri, Maharashtra"},
-    {city:"alibag", title:"Luxury Holiday Villa", price:"₹2.7 Cr", location:"Alibag, Maharashtra"}
-];
+const properties = {
+    mumbai: [
+        {title:"Sea View Apartment", price:"₹3.2 Cr"},
+        {title:"Bandra Luxury Penthouse", price:"₹5.5 Cr"}
+    ],
+    pune: [
+        {title:"Modern 3BHK Villa", price:"₹1.8 Cr"},
+        {title:"Smart City Apartment", price:"₹2.1 Cr"}
+    ],
+    nagpur: [
+        {title:"Premium Family House", price:"₹95 Lakh"},
+        {title:"Luxury Corner Villa", price:"₹1.4 Cr"}
+    ],
+    nashik: [
+        {title:"Mountain View Bungalow", price:"₹1.2 Cr"}
+    ],
+    thane: [
+        {title:"Skyline Luxury Flat", price:"₹2.1 Cr"}
+    ],
+    kolhapur: [
+        {title:"Classic Royal Villa", price:"₹85 Lakh"}
+    ],
+    sambhajinagar: [
+        {title:"Spacious Smart Home", price:"₹75 Lakh"}
+    ],
+    solapur: [
+        {title:"Affordable Premium House", price:"₹60 Lakh"}
+    ],
+    ratnagiri: [
+        {title:"Beach Side Farmhouse", price:"₹1.5 Cr"}
+    ],
+    alibag: [
+        {title:"Luxury Holiday Villa", price:"₹2.7 Cr"}
+    ]
+};
 
-function searchCity(){
-    const input = document.getElementById("cityInput").value.toLowerCase();
+function loadProperties(){
+    const params = new URLSearchParams(window.location.search);
+    const city = params.get("city");
+
     const results = document.getElementById("propertyResults");
     results.innerHTML = "";
 
-    const filtered = properties.filter(property => property.city === input);
+    if(properties[city]){
+        properties[city].forEach(property=>{
+            results.innerHTML += `
+                <div class="property-card">
+                    <h3>${property.title}</h3>
+                    <p>${city.charAt(0).toUpperCase() + city.slice(1)}, Maharashtra</p>
+                    <h2>${property.price}</h2>
+                    <button>View Details</button>
+                </div>
+            `;
+        });
+    }else{
+        results.innerHTML = "<h2 style='color:gold;text-align:center;'>No Properties Found</h2>";
+    }
+}
 
-    if(
+window.onload = loadProperties;
+</script>
+
+</body>
+</html>
