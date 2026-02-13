@@ -85,3 +85,38 @@ window.onload = function() {
 function goBack() {
     window.location.href = "index.html";
 }
+//price preditor for land
+function predictPrice() {
+
+    let city = document.getElementById("city").value;
+    let sqft = parseFloat(document.getElementById("sqft").value);
+
+    if(city === "" || isNaN(sqft)) {
+        alert("Please select city and enter area");
+        return;
+    }
+
+    // Price per sqft for each city
+    let rates = {
+        mumbai: 12000,
+        pune: 6000,
+        ratnagiri: 2500,
+        panvel: 5000
+    };
+
+    let pricePerSqft = rates[city];
+    let totalPrice = sqft * pricePerSqft;
+
+    document.getElementById("resultContainer").innerHTML = `
+        <div class="price-card">
+            <h3>${city.toUpperCase()} Land Estimate</h3>
+            <p>Area: ${sqft} sqft</p>
+            <p>Rate: ₹ ${pricePerSqft.toLocaleString("en-IN")} per sqft</p>
+            <h2>Total Price: ₹ ${totalPrice.toLocaleString("en-IN")}</h2>
+        </div>
+    `;
+}
+
+function goBack() {
+    window.location.href = "index.html";
+}
