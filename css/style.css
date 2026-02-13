@@ -589,4 +589,22 @@ footer {
 .search-btn:hover {
     box-shadow: 0 0 15px rgba(212,175,55,0.6);
 }
+.predict-btn-container {
+    text-align: center;
+    margin: 40px 0;
+}
+
+.predict-btn {
+    padding: 14px 35px;
+    background: linear-gradient(135deg,#d4af37,#b8860b);
+    color: black;
+    font-weight: bold;
+    border-radius: 30px;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.predict-btn:hover {
+    box-shadow: 0 0 20px rgba(212,175,55,0.7);
+}
 
