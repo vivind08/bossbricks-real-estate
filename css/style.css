@@ -643,4 +643,29 @@ footer {
     display: inline-block;
     color: #d4af37;
 }
+/* ===== CLASSIC BACK BUTTON ===== */
+
+.back-container {
+    margin-top: 50px;
+    text-align: center;
+}
+
+.classic-back-btn {
+    padding: 12px 40px;
+    background: black;
+    color: #d4af37;
+    border: 2px solid #d4af37;
+    border-radius: 30px;
+    font-size: 16px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.classic-back-btn:hover {
+    background: #d4af37;
+    color: black;
+    box-shadow: 0 0 20px rgba(212,175,55,0.6);
+    transform: translateY(-3px);
+}
 
