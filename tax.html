@@ -130,17 +130,11 @@ function calculate(){
     const registration = price * registrationRate;
     const totalTax = stampDuty + registration;
 
-    
-      const stampPercent = stampDutyRates[city] * 100;
-const regPercent = registrationRate * 100;
-
-resultBox.innerHTML = `
-    <p><strong>Stamp Duty (${stampPercent}%):</strong> ₹${stampDuty.toLocaleString()}</p>
-    <p><strong>Registration Fee (${regPercent}%):</strong> ₹${registration.toLocaleString()}</p>
-    <hr>
-    <h3>Total Payable: ₹${totalTax.toLocaleString()}</h3>
-`;
-
+    resultBox.innerHTML = `
+        <p><strong>Stamp Duty:</strong> ₹${stampDuty.toLocaleString()}</p>
+        <p><strong>Registration Fee:</strong> ₹${registration.toLocaleString()}</p>
+        <hr>
+        <h3>Total Payable: ₹${totalTax.toLocaleString()}</h3>
     `;
 }
 
