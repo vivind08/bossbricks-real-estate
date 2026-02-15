@@ -11,25 +11,23 @@
     <link rel="stylesheet" href="css/style.css">
    
 
-</head>
- 
+</head>    
 
-    <!--login script-->
+<body>
+ <!--login script-->
     <script>
 function logout(){
     localStorage.removeItem("bossbricksLoggedIn");
     window.location.href = "login.html";
 }
-</script>
-
-    <!-- tax calculator -->
+    </script>
+     <!-- tax calculator -->
     <script>
 function openTaxCalculator(){
     window.location.href = "tax.html";
 }
-</script>
-
-<script>
+    </script>
+ <script>
 function goToSearch(){
     const city = document.getElementById("citySelect").value;
 
@@ -40,15 +38,13 @@ function goToSearch(){
 
     window.location.href = "search.html?city=" + city;
 }
-</script>
-    <!--for vertical card -->
+ </script>
+ <!--for vertical card -->
 <script>
 function goToBuilders(){
     window.location.href = "builders.html";
 }
 </script>
-
-<body>
 <!-- property tax calculator -->
     <div class="tax-side-card" onclick="openTaxCalculator()">
     <span>Property Tax</span>
