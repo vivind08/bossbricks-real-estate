@@ -14,13 +14,7 @@
 
 
 </head>
- <script>
-if ("serviceWorker" in navigator) {
-  navigator.serviceWorker.register("/bossbricks-real-estate/service-worker.js")
-    .then(() => console.log("SW registered"))
-    .catch(err => console.error("SW failed:", err));
-}
-</script>
+ 
 
     <!--login script-->
     <script>
@@ -161,6 +155,11 @@ function goToBuilders(){
 </footer>
 <script src="js/script.js"></script>
 
+<script>
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/bossbricks-real-estate/service-worker.js');
+}
+</script>
 
 
 </body>
