@@ -14,11 +14,72 @@
 </head>    
 
 <body>
- <button onclick="logout()">Logout</button>
-<footer>
-    <p>© 2026 Bossbricks. All Rights Reserved.</p>
-</footer>
-<script src="js/script.js"></script>
+ <section class="projects-section">
+
+    <div class="projects-card" onclick="goToBuilders()">
+        <h2>Projects & Builders</h2>
+        <p>Explore Top Developers & Their Premium Projects Across Maharashtra</p>
+        <button>Explore Now</button>
+    </div>
+
+ </section>
+ <!-- search city -->
+  <section class="city-search-section">
+
+    <div class="search-city-card">
+        <h2>Search Luxury Properties</h2>
+        <p>Select Your Preferred City</p>
+
+        <select id="citySelect">
+            <option value="">-- Select City --</option>
+            <option value="mumbai">Mumbai</option>
+            <option value="pune">Pune</option>
+            <option value="nagpur">Nagpur</option>
+            <option value="nashik">Nashik</option>
+            <option value="thane">Thane</option>
+            <option value="kolhapur">Kolhapur</option>
+            <option value="sambhajinagar">Sambhajinagar</option>
+            <option value="solapur">Solapur</option>
+            <option value="ratnagiri">Ratnagiri</option>
+            <option value="alibag">Alibag</option>
+        </select>
+
+        <button onclick="goToSearch()">Search Property</button>
+    </div>
+
+  </section>
+ <!-- EMI Calculator Section -->
+<section class="emi-section">
+    <div class="emi-container">
+        <h2>EMI Calculator</h2>
+
+        <div class="emi-form">
+            <input type="number" id="loanAmount" placeholder="Loan Amount (₹)">
+            <input type="number" id="interestRate" placeholder="Interest Rate (%)">
+            <input type="number" id="loanTenure" placeholder="Loan Tenure (Years)">
+
+            <button onclick="calculateEMI()" class="emi-btn">Calculate EMI
+            </button>
+
+            <h3 id="emiResult">Your EMI: ₹ </h3>
+        </div>
+    </div>
+</section>
+ <section class="property-types">
+    <div class="container">
+        <h2>What are you looking for?</h2>
+
+        <div class="type-list">
+            <a href="apartment.html" class="type-item">Apartment</a>
+            <a href="land.html" class="type-item">Land</a>
+            <a href="villa.html" class="type-item">Villa</a>
+            <a href="farmhouse.html" class="type-item">Farmhouse</a>
+            <a href="modernhouse.html" class="type-item">Modern House</a>
+                                                                         
+        </div>
+
+ </section>
+ 
 
  <!--login script-->
     <script>
@@ -80,76 +141,19 @@ function goToBuilders(){
     </a>
 </div>
     <!-- vertical card -->
-    <section class="projects-section">
+    
 
-    <div class="projects-card" onclick="goToBuilders()">
-        <h2>Projects & Builders</h2>
-        <p>Explore Top Developers & Their Premium Projects Across Maharashtra</p>
-        <button>Explore Now</button>
-    </div>
-
-</section>
-
-    <!-- search city -->
-  <section class="city-search-section">
-
-    <div class="search-city-card">
-        <h2>Search Luxury Properties</h2>
-        <p>Select Your Preferred City</p>
-
-        <select id="citySelect">
-            <option value="">-- Select City --</option>
-            <option value="mumbai">Mumbai</option>
-            <option value="pune">Pune</option>
-            <option value="nagpur">Nagpur</option>
-            <option value="nashik">Nashik</option>
-            <option value="thane">Thane</option>
-            <option value="kolhapur">Kolhapur</option>
-            <option value="sambhajinagar">Sambhajinagar</option>
-            <option value="solapur">Solapur</option>
-            <option value="ratnagiri">Ratnagiri</option>
-            <option value="alibag">Alibag</option>
-        </select>
-
-        <button onclick="goToSearch()">Search Property</button>
-    </div>
-
-</section>
+    
   
 
-<!-- EMI Calculator Section -->
-<section class="emi-section">
-    <div class="emi-container">
-        <h2>EMI Calculator</h2>
 
-        <div class="emi-form">
-            <input type="number" id="loanAmount" placeholder="Loan Amount (₹)">
-            <input type="number" id="interestRate" placeholder="Interest Rate (%)">
-            <input type="number" id="loanTenure" placeholder="Loan Tenure (Years)">
 
-            <button onclick="calculateEMI()" class="emi-btn">Calculate EMI
-            </button>
 
-            <h3 id="emiResult">Your EMI: ₹ </h3>
-        </div>
-    </div>
-</section>
-
-<section class="property-types">
-    <div class="container">
-        <h2>What are you looking for?</h2>
-
-        <div class="type-list">
-            <a href="apartment.html" class="type-item">Apartment</a>
-            <a href="land.html" class="type-item">Land</a>
-            <a href="villa.html" class="type-item">Villa</a>
-            <a href="farmhouse.html" class="type-item">Farmhouse</a>
-            <a href="modernhouse.html" class="type-item">Modern House</a>
-                                                                         
-        </div>
-
-</section>
-
+<button onclick="logout()">Logout</button>
+<footer>
+    <p>© 2026 Bossbricks. All Rights Reserved.</p>
+</footer>
+<script src="js/script.js"></script>
 <script>
 if ('serviceWorker' in navigator) {
   navigator.serviceWorker.register('/bossbricks-real-estate/service-worker.js');
