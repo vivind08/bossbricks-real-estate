@@ -23,6 +23,14 @@ self.addEventListener("fetch", event => {
     caches.match(event.request)
       .then(response => {
         return response || fetch(event.request);
+  const urlsToCache = [
+  "/bossbricks-real-estate/index.html",
+  "/bossbricks-real-estate/style.css",
+  "/bossbricks-real-estate/manifest.json",
+  // other assets
+];
+
       })
+    
   );
 });
