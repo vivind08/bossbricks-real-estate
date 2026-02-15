@@ -14,7 +14,68 @@
 </head>    
 
 <body>
- <section class="projects-section">
+ 
+ <!--login script-->
+    <script>
+function logout(){
+    localStorage.removeItem("bossbricksLoggedIn");
+    window.location.href = "login.html";
+}
+    </script>
+     <!-- tax calculator -->
+    <script>
+function openTaxCalculator(){
+    window.location.href = "tax.html";
+}
+    </script>
+ <script>
+function goToSearch(){
+    const city = document.getElementById("citySelect").value;
+
+    if(city === ""){
+        alert("Please select a city");
+        return;
+    }
+
+    window.location.href = "search.html?city=" + city;
+}
+ </script>
+ <!--for vertical card -->
+<script>
+function goToBuilders(){
+    window.location.href = "builders.html";
+}
+</script>
+<!-- property tax calculator -->
+    <div class="tax-side-card" onclick="openTaxCalculator()">
+    <span>Property Tax</span>
+</div>
+
+<header>
+    <div class="logo">Bossbricks</div>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="#">Properties</a>
+        <a href="#">Contact</a>
+        <a href="#" class="btn">Login</a>
+    </nav>
+</header>
+
+<section class="hero">
+    <div class="hero-content">
+        <h1>Premium Real Estate Solutions</h1>
+        <p>Find, evaluate and invest in properties with confidence.</p>
+    </div>
+</section>
+
+    <!-- price predict for land -->
+    <div class="predict-btn-container">
+    <a href="predict.html" class="predict-btn">
+        Predict House Price
+    </a>
+</div>
+    <!-- vertical card -->
+    <section class="projects-section">
 
     <div class="projects-card" onclick="goToBuilders()">
         <h2>Projects & Builders</h2>
@@ -86,67 +147,6 @@
 </footer>
 <script src="js/script.js"></script>
 
- <!--login script-->
-    <script>
-function logout(){
-    localStorage.removeItem("bossbricksLoggedIn");
-    window.location.href = "login.html";
-}
-    </script>
-     <!-- tax calculator -->
-    <script>
-function openTaxCalculator(){
-    window.location.href = "tax.html";
-}
-    </script>
- <script>
-function goToSearch(){
-    const city = document.getElementById("citySelect").value;
-
-    if(city === ""){
-        alert("Please select a city");
-        return;
-    }
-
-    window.location.href = "search.html?city=" + city;
-}
- </script>
- <!--for vertical card -->
-<script>
-function goToBuilders(){
-    window.location.href = "builders.html";
-}
-</script>
-<!-- property tax calculator -->
-    <div class="tax-side-card" onclick="openTaxCalculator()">
-    <span>Property Tax</span>
-</div>
-
-<header>
-    <div class="logo">Bossbricks</div>
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="#">Properties</a>
-        <a href="#">Contact</a>
-        <a href="#" class="btn">Login</a>
-    </nav>
-</header>
-
-<section class="hero">
-    <div class="hero-content">
-        <h1>Premium Real Estate Solutions</h1>
-        <p>Find, evaluate and invest in properties with confidence.</p>
-    </div>
-</section>
-
-    <!-- price predict for land -->
-    <div class="predict-btn-container">
-    <a href="predict.html" class="predict-btn">
-        Predict House Price
-    </a>
-</div>
-    <!-- vertical card -->
-    
 
     
   
