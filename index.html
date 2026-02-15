@@ -1,56 +1,18 @@
-<!DOCTYPE html>
+        <!DOCTYPE html>
 <html lang="en">
 <head>
- <link rel="manifest" href="/bossbricks-real-estate/manifest.json">
+<link rel="manifest" href="/bossbricks-real-estate/manifest.json">
 <meta name="theme-color" content="#1e3c72">
 
-   
-    <meta charset="UTF-8">
-    <title>Bossbricks | Real Estate Platform</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
-   
-
-</head>    
+<meta charset="UTF-8">
+<title>Bossbricks | Real Estate Platform</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="css/style.css">
+</head>
 
 <body>
- 
- <!--login script-->
-    <script>
-function logout(){
-    localStorage.removeItem("bossbricksLoggedIn");
-    window.location.href = "login.html";
-}
-    </script>
-     <!-- tax calculator -->
-    <script>
-function openTaxCalculator(){
-    window.location.href = "tax.html";
-}
-    </script>
- <script>
-function goToSearch(){
-    const city = document.getElementById("citySelect").value;
 
-    if(city === ""){
-        alert("Please select a city");
-        return;
-    }
-
-    window.location.href = "search.html?city=" + city;
-}
- </script>
- <!--for vertical card -->
-<script>
-function goToBuilders(){
-    window.location.href = "builders.html";
-}
-</script>
-<!-- property tax calculator -->
-    <div class="tax-side-card" onclick="openTaxCalculator()">
-    <span>Property Tax</span>
-</div>
-
+<!-- HEADER -->
 <header>
     <div class="logo">Bossbricks</div>
     <nav>
@@ -61,6 +23,12 @@ function goToBuilders(){
     </nav>
 </header>
 
+<!-- TAX SIDE CARD -->
+<div class="tax-side-card" onclick="openTaxCalculator()">
+    <span>Property Tax</span>
+</div>
+
+<!-- HERO SECTION -->
 <section class="hero">
     <div class="hero-content">
         <h1>Premium Real Estate Solutions</h1>
@@ -68,25 +36,24 @@ function goToBuilders(){
     </div>
 </section>
 
-    <!-- price predict for land -->
-    <div class="predict-btn-container">
+<!-- PRICE PREDICT -->
+<div class="predict-btn-container">
     <a href="predict.html" class="predict-btn">
         Predict House Price
     </a>
 </div>
-    <!-- vertical card -->
-    <section class="projects-section">
 
+<!-- PROJECTS & BUILDERS -->
+<section class="projects-section">
     <div class="projects-card" onclick="goToBuilders()">
         <h2>Projects & Builders</h2>
         <p>Explore Top Developers & Their Premium Projects Across Maharashtra</p>
         <button>Explore Now</button>
     </div>
+</section>
 
- </section>
- <!-- search city -->
-  <section class="city-search-section">
-
+<!-- SEARCH CITY -->
+<section class="city-search-section">
     <div class="search-city-card">
         <h2>Search Luxury Properties</h2>
         <p>Select Your Preferred City</p>
@@ -107,9 +74,9 @@ function goToBuilders(){
 
         <button onclick="goToSearch()">Search Property</button>
     </div>
+</section>
 
-  </section>
- <!-- EMI Calculator Section -->
+<!-- EMI CALCULATOR -->
 <section class="emi-section">
     <div class="emi-container">
         <h2>EMI Calculator</h2>
@@ -119,14 +86,17 @@ function goToBuilders(){
             <input type="number" id="interestRate" placeholder="Interest Rate (%)">
             <input type="number" id="loanTenure" placeholder="Loan Tenure (Years)">
 
-            <button onclick="calculateEMI()" class="emi-btn">Calculate EMI
+            <button onclick="calculateEMI()" class="emi-btn">
+                Calculate EMI
             </button>
 
             <h3 id="emiResult">Your EMI: ₹ </h3>
         </div>
     </div>
 </section>
- <section class="property-types">
+
+<!-- PROPERTY TYPES -->
+<section class="property-types">
     <div class="container">
         <h2>What are you looking for?</h2>
 
@@ -136,31 +106,50 @@ function goToBuilders(){
             <a href="villa.html" class="type-item">Villa</a>
             <a href="farmhouse.html" class="type-item">Farmhouse</a>
             <a href="modernhouse.html" class="type-item">Modern House</a>
-                                                                         
         </div>
+    </div>
+</section>
 
- </section>
+<!-- LOGOUT BUTTON -->
+<button onclick="logout()">Logout</button>
 
- <button onclick="logout()">Logout</button>
+<!-- FOOTER -->
 <footer>
     <p>© 2026 Bossbricks. All Rights Reserved.</p>
 </footer>
+
+<!-- SCRIPTS -->
 <script src="js/script.js"></script>
 
-
-    
-  
-
-
-
-
-
 <script>
+function logout(){
+    localStorage.removeItem("bossbricksLoggedIn");
+    window.location.href = "login.html";
+}
+
+function openTaxCalculator(){
+    window.location.href = "tax.html";
+}
+
+function goToSearch(){
+    const city = document.getElementById("citySelect").value;
+
+    if(city === ""){
+        alert("Please select a city");
+        return;
+    }
+
+    window.location.href = "search.html?city=" + city;
+}
+
+function goToBuilders(){
+    window.location.href = "builders.html";
+}
+
 if ('serviceWorker' in navigator) {
   navigator.serviceWorker.register('/bossbricks-real-estate/service-worker.js');
 }
 </script>
-
 
 </body>
 </html>
