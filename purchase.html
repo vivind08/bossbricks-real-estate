@@ -1,71 +1,40 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Purchase Property</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    body {
-      font-family: Arial;
-      background: #f4f4f4;
-      padding: 20px;
-    }
-
-    .container {
-      max-width: 400px;
-      margin: auto;
-      background: white;
-      padding: 20px;
-      border-radius: 10px;
-    }
-
-    input, textarea {
-      width: 100%;
-      padding: 10px;
-      margin: 8px 0;
-    }
-
-    button {
-      width: 100%;
-      padding: 12px;
-      background: #1e3c72;
-      color: white;
-      border: none;
-      border-radius: 5px;
-    }
-  </style>
+    <title>Purchase Property</title>
 </head>
 <body>
 
-<div class="container">
-  <h2>Purchase Inquiry</h2>
+<h2>Confirm Your Property</h2>
 
-  <p><strong>Property:</strong> <span id="propertyName"></span></p>
+<p id="propName"></p>
+<p id="propPrice"></p>
+<p id="propCity"></p>
 
-  <input type="text" id="name" placeholder="Your Name">
-  <input type="email" id="email" placeholder="Your Email">
-  <textarea id="message" placeholder="Message"></textarea>
+<h3>Enter Your Details</h3>
 
-  <button onclick="sendWhatsApp()">Contact on WhatsApp</button>
-</div>
+<input type="text" placeholder="Your Name"><br><br>
+<input type="email" placeholder="Your Email"><br><br>
+<input type="tel" placeholder="Your Phone"><br><br>
+
+<button onclick="confirmPurchase()">Submit</button>
 
 <script>
-  const params = new URLSearchParams(window.location.search);
-  const property = params.get("property");
 
-  document.getElementById("propertyName").innerText = property;
+document.getElementById("propName").innerText =
+    "Property: " + localStorage.getItem("selectedPropertyName");
 
-  function sendWhatsApp() {
-    const name = document.getElementById("name").value;
-    const email = document.getElementById("email").value;
+document.getElementById("propPrice").innerText =
+    "Price: " + localStorage.getItem("selectedPropertyPrice");
 
-    const message = `Hello, I am interested in ${property}.
-Name: ${name}
-Email: ${email}`;
+document.getElementById("propCity").innerText =
+    "City: " + localStorage.getItem("selectedPropertyCity");
 
-    const phoneNumber = "+918766669225"; // Replace with YOUR number
+function confirmPurchase(){
+    alert("Your request has been submitted! Our team will contact you.");
+    window.location.href = "index.html";
+}
 
-    window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`, "_blank");
-  }
 </script>
 
 </body>
