@@ -124,6 +124,16 @@ const projectsData = {
 </button>
     ]
 };
+<script>
+function buyProperty(name, price, city){
+
+    localStorage.setItem("selectedPropertyName", name);
+    localStorage.setItem("selectedPropertyPrice", price);
+    localStorage.setItem("selectedPropertyCity", city);
+
+    window.location.href = "purchase.html";
+}
+</script>
 
 function loadProjects(){
     const params = new URLSearchParams(window.location.search);
@@ -149,16 +159,6 @@ function loadProjects(){
 }
 
 window.onload = loadProjects;
-</script>
-<script>
-function buyProperty(name, price, city){
-
-    localStorage.setItem("selectedPropertyName", name);
-    localStorage.setItem("selectedPropertyPrice", price);
-    localStorage.setItem("selectedPropertyCity", city);
-
-    window.location.href = "purchase.html";
-}
 </script>
 
 
