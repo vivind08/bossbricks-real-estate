@@ -127,3 +127,44 @@ function goBack() {
 function buyProperty(propertyName) {
   window.location.href = "purchase.html?property=" + encodeURIComponent(propertyName);
 }
+<script>
+function toggleChat() {
+    const chatBox = document.getElementById("chatBox");
+    chatBox.style.display = chatBox.style.display === "flex" ? "none" : "flex";
+}
+
+function sendMessage() {
+    const input = document.getElementById("userInput");
+    const message = input.value.trim();
+    const chatMessages = document.getElementById("chatMessages");
+
+    if (message === "") return;
+
+    // User message
+    const userMsg = document.createElement("div");
+    userMsg.className = "user-message";
+    userMsg.innerText = message;
+    chatMessages.appendChild(userMsg);
+
+    input.value = "";
+
+    // Auto reply after 1 second
+    setTimeout(() => {
+        const botMsg = document.createElement("div");
+        botMsg.className = "bot-message";
+
+        if (message.toLowerCase().includes("price")) {
+            botMsg.innerText = "Please tell me which property you are interested in.";
+        } 
+        else if (message.toLowerCase().includes("visit")) {
+            botMsg.innerText = "Sure! You can schedule a site visit using the Schedule Visit button.";
+        } 
+        else {
+            botMsg.innerText = "Our agent will contact you shortly. Thank you!";
+        }
+
+        chatMessages.appendChild(botMsg);
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+    }, 1000);
+}
+</script>
