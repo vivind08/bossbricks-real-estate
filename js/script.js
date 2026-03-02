@@ -127,3 +127,16 @@ function goBack() {
 function buyProperty(propertyName) {
   window.location.href = "purchase.html?property=" + encodeURIComponent(propertyName);
 }
+function toggleDarkMode(){
+    document.body.classList.toggle("dark-mode");
+
+    let btn = document.getElementById("darkToggle");
+
+    if(document.body.classList.contains("dark-mode")){
+        localStorage.setItem("theme","dark");
+        btn.innerText = "☀️";
+    } else {
+        localStorage.setItem("theme","light");
+        btn.innerText = "🌙";
+    }
+}
