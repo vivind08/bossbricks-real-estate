@@ -124,3 +124,6 @@ function predictPrice() {
 function goBack() {
     window.location.href = "index.html";
 }
+function buyProperty(propertyName) {
+  window.location.href = "purchase.html?property=" + encodeURIComponent(propertyName);
+}
