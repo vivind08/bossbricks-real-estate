@@ -143,5 +143,15 @@
                     
                 </div>
             </div>
+<script>
+function buyProperty(name, price, city){
 
+    localStorage.setItem("selectedPropertyName", name);
+    localStorage.setItem("selectedPropertyPrice", price);
+    localStorage.setItem("selectedPropertyCity", city);
+
+    window.location.href = "purchase.html";
+}
+</script>
+    
           
