@@ -783,32 +783,4 @@ body {
     transition: 0.3s;
 }
 
-/* DARK MODE STYLE */
-.dark-mode {
-    background-color: #121212;
-    color: white;
-}
 
-.dark-mode header {
-    background-color: #1e1e1e;
-}
-
-.dark-mode .property-card {
-    background-color: #1e1e1e;
-    color: white;
-}
-
-.dark-mode .projects-card,
-.dark-mode .search-city-card,
-.dark-mode .emi-container {
-    background-color: #1e1e1e;
-    color: white;
-}
-
-.dark-btn {
-    background: none;
-    border: none;
-    font-size: 18px;
-    cursor: pointer;
-}
-    
