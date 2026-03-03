@@ -145,3 +145,10 @@ counters.forEach(counter => {
 
     update();
 });
+function openTour(){
+    document.getElementById("tourModal").style.display="flex";
+}
+
+function closeTour(){
+    document.getElementById("tourModal").style.display="none";
+}
