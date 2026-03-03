@@ -1,11 +1,10 @@
 {
   "name": "BossBricks Real Estate",
   "short_name": "BossBricks",
-  "start_url":"start_url": ".",
+  "start_url": "/bossbricks-real-estate/index.html",
   "display": "standalone",
   "background_color": "#111111",
   "theme_color": "#1e3c72",
-  "orientation": "portrait",
   "icons": [
     {
       "src": "icon-192.png",
