@@ -127,3 +127,21 @@ function goBack() {
 function buyProperty(propertyName) {
   window.location.href = "purchase.html?property=" + encodeURIComponent(propertyName);
 }
+const counters = document.querySelectorAll('.counter');
+
+counters.forEach(counter => {
+    const update = () => {
+        const target = +counter.getAttribute('data-target');
+        const current = +counter.innerText;
+        const increment = target / 120;
+
+        if(current < target){
+            counter.innerText = Math.ceil(current + increment);
+            requestAnimationFrame(update);
+        } else {
+            counter.innerText = target + "+";
+        }
+    };
+
+    update();
+});
