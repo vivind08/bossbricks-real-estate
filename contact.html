@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Contact - BossBricks</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body{
+    height:100vh;
+    background:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),
+    url('https://images.unsplash.com/photo-1560448204-e02f11c3d0e2');
+    background-size:cover;
+    background-position:center;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.contact-container{
+    width:420px;
+    padding:40px;
+    border-radius:20px;
+    background:rgba(255,255,255,0.1);
+    backdrop-filter:blur(15px);
+    box-shadow:0 15px 40px rgba(0,0,0,0.4);
+    color:white;
+}
+
+.contact-container h2{
+    text-align:center;
+    margin-bottom:25px;
+    font-weight:500;
+}
+
+.input-box{
+    margin-bottom:18px;
+}
+
+.input-box input,
+.input-box textarea{
+    width:100%;
+    padding:12px;
+    border:none;
+    border-radius:8px;
+    outline:none;
+}
+
+.input-box textarea{
+    resize:none;
+    height:80px;
+}
+
+button{
+    width:100%;
+    padding:12px;
+    border:none;
+    border-radius:8px;
+    background:#1e3c72;
+    color:white;
+    font-size:16px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+button:hover{
+    background:#16325c;
+    transform:scale(1.05);
+}
+
+.success-popup{
+    position:fixed;
+    top:20px;
+    right:20px;
+    background:#28a745;
+    padding:15px 25px;
+    border-radius:10px;
+    color:white;
+    display:none;
+}
+</style>
+</head>
+
+<body>
+
+<div class="contact-container">
+    <h2>Book Your Dream Property</h2>
+
+    <div class="input-box">
+        <input type="text" id="propertyName" readonly>
+    </div>
+
+    <div class="input-box">
+        <input type="text" id="name" placeholder="Your Full Name" required>
+    </div>
+
+    <div class="input-box">
+        <input type="email" id="email" placeholder="Your Email" required>
+    </div>
+
+    <div class="input-box">
+        <input type="tel" id="phone" placeholder="Your Phone Number" required>
+    </div>
+
+    <div class="input-box">
+        <textarea placeholder="Message (Optional)"></textarea>
+    </div>
+
+    <button onclick="submitForm()">Submit Inquiry</button>
+</div>
+
+<div class="success-popup" id="successPopup">
+    Inquiry Sent Successfully!
+</div>
+
+<script>
+document.getElementById("propertyName").value =
+localStorage.getItem("selectedProperty") || "Selected Property";
+
+function submitForm(){
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+    const phone = document.getElementById("phone").value;
+
+    if(name === "" || email === "" || phone === ""){
+        alert("Please fill all required fields.");
+        return;
+    }
+
+    document.getElementById("successPopup").style.display = "block";
+
+    setTimeout(()=>{
+        document.getElementById("successPopup").style.display = "none";
+        localStorage.removeItem("selectedProperty");
+    },3000);
+}
+</script>
+
+</body>
+</html>
