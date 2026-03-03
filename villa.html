@@ -39,6 +39,7 @@
                     <button onclick="buyProperty('Beachside Luxury Villa Goa')">
   Buy Now
 </button>
+                    <button class="tour-btn" onclick="openTour()">View 3D Tour</button>
                 </div>
             </div>
 
@@ -115,6 +116,17 @@ function buyProperty(name, price, city){
     window.location.href = "purchase.html";
 }
 </script>
+    <div id="tourModal" class="tour-modal">
+    <div class="tour-content">
+        <span class="close-tour" onclick="closeTour()">&times;</span>
+
+        <iframe 
+            src="https://my.matterport.com/show/?m=https://discover.matterport.com/space/oyaicKWaEQw
+            frameborder="0"
+            allowfullscreen>
+        </iframe>
+    </div>
+</div>
 
 </body>
 </html>
