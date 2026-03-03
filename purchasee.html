@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Purchase Property - BossBricks</title>
+
+<style>
+body{
+    font-family:Arial;
+    background:#f4f6fb;
+    margin:0;
+    padding:40px;
+}
+
+.purchase-box{
+    max-width:500px;
+    margin:auto;
+    background:white;
+    padding:30px;
+    border-radius:15px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.1);
+}
+
+h2{
+    text-align:center;
+    color:#1e3c72;
+}
+
+input{
+    width:100%;
+    padding:10px;
+    margin:10px 0;
+    border-radius:8px;
+    border:1px solid #ccc;
+}
+
+button{
+    width:100%;
+    padding:12px;
+    background:#1e3c72;
+    color:white;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+.success{
+    text-align:center;
+    color:green;
+    margin-top:15px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="purchase-box">
+    <h2>Purchase Property</h2>
+
+    <input type="text" id="pName" readonly>
+    <input type="text" id="pLocation" readonly>
+    <input type="text" id="pPrice" readonly>
+
+    <input type="text" placeholder="Your Full Name" required>
+    <input type="email" placeholder="Your Email" required>
+    <input type="tel" placeholder="Your Phone Number" required>
+
+    <button onclick="submitForm()">Submit Inquiry</button>
+
+    <div class="success" id="successMsg"></div>
+</div>
+
+<script>
+document.getElementById("pName").value = localStorage.getItem("propertyName");
+document.getElementById("pLocation").value = localStorage.getItem("propertyLocation");
+document.getElementById("pPrice").value = localStorage.getItem("propertyPrice");
+
+function submitForm(){
+    document.getElementById("successMsg").innerText =
+    "Thank you! Our agent will contact you shortly.";
+
+    localStorage.clear();
+}
+</script>
+
+</body>
+</html>
