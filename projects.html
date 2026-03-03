@@ -102,7 +102,7 @@ function loadProjects(){
     container.innerHTML = "";
 
     if(projectsData[builder]){
-       projectsData[builder].forEach(project=>{
+      projectsData[builder].forEach(project=>{
     container.innerHTML += `
         <div class="project-card">
             <h3>${project.name}</h3>
@@ -110,22 +110,31 @@ function loadProjects(){
             <h2 style="margin:10px 0;">${project.price}</h2>
             <p>${project.type}</p>
 
-            <button onclick="buyNow('${project.name}', '${project.price}', '${project.location}')"
-            style="margin-top:10px;padding:8px 15px;background:#1e3c72;color:white;border:none;border-radius:8px;cursor:pointer;">
-            Buy Now
+            <button class="buy-btn"
+                data-name="${project.name}"
+                data-price="${project.price}"
+                data-location="${project.location}"
+                style="margin-top:10px;padding:8px 15px;background:#1e3c72;color:white;border:none;border-radius:8px;cursor:pointer;">
+                Buy Now
             </button>
 
         </div>
     `;
 });
 window.onload = loadProjects;
-     function buyNow(name, price, location){
-    localStorage.setItem("propertyName", name);
-    localStorage.setItem("propertyPrice", price);
-    localStorage.setItem("propertyLocation", location);
+    document.addEventListener("click", function(e){
+    if(e.target.classList.contains("buy-btn")){
+        const name = e.target.getAttribute("data-name");
+        const price = e.target.getAttribute("data-price");
+        const location = e.target.getAttribute("data-location");
 
-    window.location.href = "purchasee.html";
-}
+        localStorage.setItem("propertyName", name);
+        localStorage.setItem("propertyPrice", price);
+        localStorage.setItem("propertyLocation", location);
+
+        window.location.href = "purchasee.html";
+    }
+});
 </script>
 
 
