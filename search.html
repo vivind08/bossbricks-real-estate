@@ -138,6 +138,9 @@ function loadProperties(){
                     <p>${city.charAt(0).toUpperCase()+city.slice(1)}, Maharashtra</p>
                     <h2 style="margin:10px 0;">${property.price}</h2>
                     <button>View Details</button>
+                    <button onclick="contactProperty('${project.name}')">
+Contact Now
+</button>
                 </div>
             `;
         });
@@ -147,6 +150,10 @@ function loadProperties(){
 }
 
 window.onload = loadProperties;
+  function contactProperty(propertyName){
+    localStorage.setItem("selectedProperty", propertyName);
+    window.location.href = "contact.html";
+}
 </script>
 
 
