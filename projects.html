@@ -102,18 +102,22 @@ function loadProjects(){
     container.innerHTML = "";
 
     if(projectsData[builder]){
-      projectsData[builder].forEach(project=>{
-    container.innerHTML += `
-        <div class="project-card">
-            <h3>${project.name}</h3>
-            <p>${project.location}</p>
-            <h2 style="margin:10px 0;">${project.price}</h2>
-            <p>${project.type}</p>
-        </div>
-    `;
-});
-window.onload = loadProjects;
+        projectsData[builder].forEach(project=>{
+            container.innerHTML += `
+                <div class="project-card">
+                    <h3>${project.name}</h3>
+                    <p>${project.location}</p>
+                    <h2 style="margin:10px 0;">${project.price}</h2>
+                    <p>${project.type}</p>
+                </div>
+            `;
+        });
+    }else{
+        container.innerHTML = "<h2>No Projects Found</h2>";
+    }
+}
 
+window.onload = loadProjects;
 </script>
 
 
