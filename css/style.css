@@ -800,4 +800,19 @@ body {
     box-shadow: 0 4px 12px rgba(0,0,0,0.3);
     z-index: 1000;
 }
+<style>
+.contact-btn{
+    display:inline-block;
+    padding:12px 25px;
+    background:#1e3c72;
+    color:white;
+    text-decoration:none;
+    border-radius:8px;
+    transition:0.3s;
+}
 
+.contact-btn:hover{
+    background:#16325c;
+    transform:scale(1.05);
+}
+</style>
